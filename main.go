@@ -16,10 +16,12 @@ func run() error {
 	if err != nil {
 		return errors.Wrap(err, "cmd.StdoutPipe")
 	}
+
 	stderr, err := cmd.StderrPipe()
 	if err != nil {
 		return errors.Wrap(err, "cmd.StderrPipe")
 	}
+
 	go func() {
 		scanner := bufio.NewScanner(stderr)
 		for scanner.Scan() {
@@ -31,11 +33,12 @@ func run() error {
 	if err := cmd.Start(); err != nil {
 		return errors.Wrap(err, "cmd.Start")
 	}
+
 	scanner := bufio.NewScanner(stdout)
-	err = runPrettier(scanner)
-	if err != nil {
+	if err := runPrettier(scanner); err != nil {
 		return errors.Wrap(err, "runPrettier")
 	}
+
 	return cmd.Wait()
 }
 

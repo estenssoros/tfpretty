@@ -14,8 +14,12 @@ import (
 )
 
 var (
-	ErrDone             = errors.New("done")
-	ErrResourceNotFound = errors.New("resource not found")
+	ErrBadLine            = errors.New("bad line")
+	ErrDone               = errors.New("done")
+	ErrFailedToInitialize = errors.New("failed to initialize")
+	ErrResourceNotFound   = errors.New("resource not found")
+	ErrResourceAndAction  = errors.New("could not find resource and action")
+	ErrUnknownAction      = errors.New("unknown action")
 )
 
 type Prettier struct {
@@ -50,6 +54,7 @@ func (p Prettier) String() string {
 		data[k] = list
 		order = append(order, k)
 	}
+
 	sort.Strings(order)
 
 	var b strings.Builder
@@ -112,7 +117,7 @@ func (p *Prettier) Process(line string) error {
 	}
 	resource, after, found := strings.Cut(line, ":")
 	if !found {
-		return errors.Errorf("bad line: [%s]", line)
+		return errors.Wrap(ErrBadLine, line)
 	}
 
 	status, ok := p.Resources[resource]
@@ -182,7 +187,7 @@ func findResources(scanner *bufio.Scanner) (map[string]*Status, error) {
 		case "destroyed":
 			op = opDestroying
 		default:
-			return nil, errors.Errorf("unknown action: [%s]", action)
+			return nil, errors.Wrap(ErrUnknownAction, action)
 		}
 
 		resources[resource] = &Status{Resource: resource, Op: op}
@@ -204,7 +209,7 @@ func scanResourceLine(line string) (string, string, error) {
 	if err == nil {
 		return resource, action, nil
 	}
-	return "", "", errors.Errorf("could not find resource and action: [%s]", line)
+	return "", "", errors.Wrap(ErrResourceAndAction, line)
 }
 
 func skipStart(scanner *bufio.Scanner) error {
@@ -214,7 +219,7 @@ func skipStart(scanner *bufio.Scanner) error {
 			return nil
 		}
 	}
-	return errors.New("failed to initialize prettier")
+	return ErrFailedToInitialize
 }
 
 func skipChangesToOutputs(scanner *bufio.Scanner) (string, error) {
