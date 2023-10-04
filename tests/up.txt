@@ -1,0 +1,789 @@
+
+Initializing the backend...
+Upgrading modules...
+- networking in modules/networking
+
+Initializing provider plugins...
+- Finding hashicorp/aws versions matching "~> 5.0"...
+- Using previously-installed hashicorp/aws v5.19.0
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+data.aws_route53_zone.domain: Reading...
+data.aws_route53_zone.domain: Read complete after 1s [id=Z16UZ8Y7MVL91W]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_acm_certificate.cert will be created
+  + resource "aws_acm_certificate" "cert" {
+      + arn                       = (known after apply)
+      + domain_name               = "vpn.estenssoros.com"
+      + domain_validation_options = [
+          + {
+              + domain_name           = "vpn.estenssoros.com"
+              + resource_record_name  = (known after apply)
+              + resource_record_type  = (known after apply)
+              + resource_record_value = (known after apply)
+            },
+          + {
+              + domain_name           = "www.vpn.estenssoros.com"
+              + resource_record_name  = (known after apply)
+              + resource_record_type  = (known after apply)
+              + resource_record_value = (known after apply)
+            },
+        ]
+      + id                        = (known after apply)
+      + key_algorithm             = (known after apply)
+      + not_after                 = (known after apply)
+      + not_before                = (known after apply)
+      + pending_renewal           = (known after apply)
+      + renewal_eligibility       = (known after apply)
+      + renewal_summary           = (known after apply)
+      + status                    = (known after apply)
+      + subject_alternative_names = [
+          + "vpn.estenssoros.com",
+          + "www.vpn.estenssoros.com",
+        ]
+      + tags_all                  = (known after apply)
+      + type                      = (known after apply)
+      + validation_emails         = (known after apply)
+      + validation_method         = "DNS"
+    }
+
+  # aws_acm_certificate_validation.vpn will be created
+  + resource "aws_acm_certificate_validation" "vpn" {
+      + certificate_arn         = (known after apply)
+      + id                      = (known after apply)
+      + validation_record_fqdns = (known after apply)
+    }
+
+  # aws_ec2_client_vpn_authorization_rule.vpn will be created
+  + resource "aws_ec2_client_vpn_authorization_rule" "vpn" {
+      + authorize_all_groups   = true
+      + client_vpn_endpoint_id = (known after apply)
+      + id                     = (known after apply)
+      + target_network_cidr    = "10.0.0.0/16"
+    }
+
+  # aws_ec2_client_vpn_endpoint.vpn will be created
+  + resource "aws_ec2_client_vpn_endpoint" "vpn" {
+      + arn                    = (known after apply)
+      + client_cidr_block      = "10.192.0.0/22"
+      + description            = "terraform-clientvpn"
+      + dns_name               = (known after apply)
+      + dns_servers            = [
+          + "10.0.0.2",
+        ]
+      + id                     = (known after apply)
+      + security_group_ids     = (known after apply)
+      + self_service_portal    = "disabled"
+      + server_certificate_arn = (known after apply)
+      + session_timeout_hours  = 24
+      + split_tunnel           = false
+      + tags                   = {
+          + "Name" = "vpn-endpoint"
+        }
+      + tags_all               = {
+          + "Name" = "vpn-endpoint"
+        }
+      + transport_protocol     = "udp"
+      + vpc_id                 = (known after apply)
+      + vpn_port               = 443
+
+      + authentication_options {
+          + root_certificate_chain_arn = (known after apply)
+          + type                       = "certificate-authentication"
+        }
+
+      + connection_log_options {
+          + cloudwatch_log_stream = (known after apply)
+          + enabled               = false
+        }
+    }
+
+  # aws_ec2_client_vpn_network_association.vpn[0] will be created
+  + resource "aws_ec2_client_vpn_network_association" "vpn" {
+      + association_id         = (known after apply)
+      + client_vpn_endpoint_id = (known after apply)
+      + id                     = (known after apply)
+      + subnet_id              = (known after apply)
+      + vpc_id                 = (known after apply)
+    }
+
+  # aws_ec2_client_vpn_network_association.vpn[1] will be created
+  + resource "aws_ec2_client_vpn_network_association" "vpn" {
+      + association_id         = (known after apply)
+      + client_vpn_endpoint_id = (known after apply)
+      + id                     = (known after apply)
+      + subnet_id              = (known after apply)
+      + vpc_id                 = (known after apply)
+    }
+
+  # aws_route53_record.vpn["vpn.estenssoros.com"] will be created
+  + resource "aws_route53_record" "vpn" {
+      + allow_overwrite = true
+      + fqdn            = (known after apply)
+      + id              = (known after apply)
+      + name            = (known after apply)
+      + records         = (known after apply)
+      + ttl             = 60
+      + type            = (known after apply)
+      + zone_id         = "Z16UZ8Y7MVL91W"
+    }
+
+  # aws_route53_record.vpn["www.vpn.estenssoros.com"] will be created
+  + resource "aws_route53_record" "vpn" {
+      + allow_overwrite = true
+      + fqdn            = (known after apply)
+      + id              = (known after apply)
+      + name            = (known after apply)
+      + records         = (known after apply)
+      + ttl             = 60
+      + type            = (known after apply)
+      + zone_id         = "Z16UZ8Y7MVL91W"
+    }
+
+  # aws_security_group.vpn_access will be created
+  + resource "aws_security_group" "vpn_access" {
+      + arn                    = (known after apply)
+      + description            = "Managed by Terraform"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 443
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "udp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 443
+            },
+        ]
+      + name                   = "vpn-sg"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags_all               = (known after apply)
+      + vpc_id                 = (known after apply)
+    }
+
+  # module.networking.aws_eip.nat[0] will be created
+  + resource "aws_eip" "nat" {
+      + allocation_id        = (known after apply)
+      + association_id       = (known after apply)
+      + carrier_ip           = (known after apply)
+      + customer_owned_ip    = (known after apply)
+      + domain               = "vpc"
+      + id                   = (known after apply)
+      + instance             = (known after apply)
+      + network_border_group = (known after apply)
+      + network_interface    = (known after apply)
+      + private_dns          = (known after apply)
+      + private_ip           = (known after apply)
+      + public_dns           = (known after apply)
+      + public_ip            = (known after apply)
+      + public_ipv4_pool     = (known after apply)
+      + tags                 = {
+          + "Name" = "vpn-eip"
+        }
+      + tags_all             = {
+          + "Name" = "vpn-eip"
+        }
+      + vpc                  = (known after apply)
+    }
+
+  # module.networking.aws_eip.nat[1] will be created
+  + resource "aws_eip" "nat" {
+      + allocation_id        = (known after apply)
+      + association_id       = (known after apply)
+      + carrier_ip           = (known after apply)
+      + customer_owned_ip    = (known after apply)
+      + domain               = "vpc"
+      + id                   = (known after apply)
+      + instance             = (known after apply)
+      + network_border_group = (known after apply)
+      + network_interface    = (known after apply)
+      + private_dns          = (known after apply)
+      + private_ip           = (known after apply)
+      + public_dns           = (known after apply)
+      + public_ip            = (known after apply)
+      + public_ipv4_pool     = (known after apply)
+      + tags                 = {
+          + "Name" = "vpn-eip"
+        }
+      + tags_all             = {
+          + "Name" = "vpn-eip"
+        }
+      + vpc                  = (known after apply)
+    }
+
+  # module.networking.aws_internet_gateway.igw will be created
+  + resource "aws_internet_gateway" "igw" {
+      + arn      = (known after apply)
+      + id       = (known after apply)
+      + owner_id = (known after apply)
+      + tags     = {
+          + "Name" = "vpn-igw"
+        }
+      + tags_all = {
+          + "Name" = "vpn-igw"
+        }
+      + vpc_id   = (known after apply)
+    }
+
+  # module.networking.aws_nat_gateway.ngw[0] will be created
+  + resource "aws_nat_gateway" "ngw" {
+      + allocation_id                      = (known after apply)
+      + association_id                     = (known after apply)
+      + connectivity_type                  = "public"
+      + id                                 = (known after apply)
+      + network_interface_id               = (known after apply)
+      + private_ip                         = (known after apply)
+      + public_ip                          = (known after apply)
+      + secondary_private_ip_address_count = (known after apply)
+      + secondary_private_ip_addresses     = (known after apply)
+      + subnet_id                          = (known after apply)
+      + tags                               = {
+          + "Name" = "vpn-nat-gateway"
+        }
+      + tags_all                           = {
+          + "Name" = "vpn-nat-gateway"
+        }
+    }
+
+  # module.networking.aws_nat_gateway.ngw[1] will be created
+  + resource "aws_nat_gateway" "ngw" {
+      + allocation_id                      = (known after apply)
+      + association_id                     = (known after apply)
+      + connectivity_type                  = "public"
+      + id                                 = (known after apply)
+      + network_interface_id               = (known after apply)
+      + private_ip                         = (known after apply)
+      + public_ip                          = (known after apply)
+      + secondary_private_ip_address_count = (known after apply)
+      + secondary_private_ip_addresses     = (known after apply)
+      + subnet_id                          = (known after apply)
+      + tags                               = {
+          + "Name" = "vpn-nat-gateway"
+        }
+      + tags_all                           = {
+          + "Name" = "vpn-nat-gateway"
+        }
+    }
+
+  # module.networking.aws_route.nat[0] will be created
+  + resource "aws_route" "nat" {
+      + destination_cidr_block = "0.0.0.0/0"
+      + gateway_id             = (known after apply)
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = (known after apply)
+      + state                  = (known after apply)
+    }
+
+  # module.networking.aws_route.nat[1] will be created
+  + resource "aws_route" "nat" {
+      + destination_cidr_block = "0.0.0.0/0"
+      + gateway_id             = (known after apply)
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = (known after apply)
+      + state                  = (known after apply)
+    }
+
+  # module.networking.aws_route.public will be created
+  + resource "aws_route" "public" {
+      + destination_cidr_block = "0.0.0.0/0"
+      + gateway_id             = (known after apply)
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = (known after apply)
+      + state                  = (known after apply)
+    }
+
+  # module.networking.aws_route_table.private[0] will be created
+  + resource "aws_route_table" "private" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = (known after apply)
+      + tags             = {
+          + "Name" = "vpn-rt-public"
+        }
+      + tags_all         = {
+          + "Name" = "vpn-rt-public"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # module.networking.aws_route_table.private[1] will be created
+  + resource "aws_route_table" "private" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = (known after apply)
+      + tags             = {
+          + "Name" = "vpn-rt-public"
+        }
+      + tags_all         = {
+          + "Name" = "vpn-rt-public"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # module.networking.aws_route_table.public will be created
+  + resource "aws_route_table" "public" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = (known after apply)
+      + tags             = {
+          + "Name" = "vpn-rt-public"
+        }
+      + tags_all         = {
+          + "Name" = "vpn-rt-public"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # module.networking.aws_route_table_association.private[0] will be created
+  + resource "aws_route_table_association" "private" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.networking.aws_route_table_association.private[1] will be created
+  + resource "aws_route_table_association" "private" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.networking.aws_route_table_association.public[0] will be created
+  + resource "aws_route_table_association" "public" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.networking.aws_route_table_association.public[1] will be created
+  + resource "aws_route_table_association" "public" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.networking.aws_subnet.private[0] will be created
+  + resource "aws_subnet" "private" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-2a"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.0.2.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Name" = "vpn-subnet-private-0"
+        }
+      + tags_all                                       = {
+          + "Name" = "vpn-subnet-private-0"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.networking.aws_subnet.private[1] will be created
+  + resource "aws_subnet" "private" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-2b"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.0.3.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Name" = "vpn-subnet-private-1"
+        }
+      + tags_all                                       = {
+          + "Name" = "vpn-subnet-private-1"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.networking.aws_subnet.public[0] will be created
+  + resource "aws_subnet" "public" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-2a"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.0.0.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Name" = "vpn-subnet-public-0"
+        }
+      + tags_all                                       = {
+          + "Name" = "vpn-subnet-public-0"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.networking.aws_subnet.public[1] will be created
+  + resource "aws_subnet" "public" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-2b"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.0.1.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Name" = "vpn-subnet-public-1"
+        }
+      + tags_all                                       = {
+          + "Name" = "vpn-subnet-public-1"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # module.networking.aws_vpc.main will be created
+  + resource "aws_vpc" "main" {
+      + arn                                  = (known after apply)
+      + cidr_block                           = "10.0.0.0/16"
+      + default_network_acl_id               = (known after apply)
+      + default_route_table_id               = (known after apply)
+      + default_security_group_id            = (known after apply)
+      + dhcp_options_id                      = (known after apply)
+      + enable_dns_hostnames                 = true
+      + enable_dns_support                   = true
+      + enable_network_address_usage_metrics = (known after apply)
+      + id                                   = (known after apply)
+      + instance_tenancy                     = "default"
+      + ipv6_association_id                  = (known after apply)
+      + ipv6_cidr_block                      = (known after apply)
+      + ipv6_cidr_block_network_border_group = (known after apply)
+      + main_route_table_id                  = (known after apply)
+      + owner_id                             = (known after apply)
+      + tags                                 = {
+          + "Name" = "vpn-vpc"
+        }
+      + tags_all                             = {
+          + "Name" = "vpn-vpc"
+        }
+    }
+
+Plan: 29 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + region       = "us-east-2"
+  + vpn_endpoint = (known after apply)
+module.networking.aws_vpc.main: Creating...
+aws_acm_certificate.cert: Creating...
+aws_acm_certificate.cert: Creation complete after 7s [id=arn:aws:acm:us-east-2:001928331621:certificate/ebc9bff6-3a55-40c5-9a7a-5f3964786efb]
+aws_route53_record.vpn["vpn.estenssoros.com"]: Creating...
+aws_route53_record.vpn["www.vpn.estenssoros.com"]: Creating...
+module.networking.aws_vpc.main: Still creating... [10s elapsed]
+module.networking.aws_vpc.main: Creation complete after 14s [id=vpc-02d7b3b9e6e1353c9]
+module.networking.aws_internet_gateway.igw: Creating...
+module.networking.aws_route_table.public: Creating...
+module.networking.aws_subnet.private[0]: Creating...
+module.networking.aws_subnet.private[1]: Creating...
+module.networking.aws_subnet.public[0]: Creating...
+module.networking.aws_subnet.public[1]: Creating...
+aws_security_group.vpn_access: Creating...
+module.networking.aws_subnet.private[1]: Creation complete after 1s [id=subnet-0509a3fc8df579b2d]
+module.networking.aws_subnet.private[0]: Creation complete after 1s [id=subnet-0d6add77cd343f548]
+module.networking.aws_route_table.private[1]: Creating...
+module.networking.aws_route_table.private[0]: Creating...
+module.networking.aws_subnet.public[0]: Creation complete after 1s [id=subnet-046a47118b6e9b130]
+module.networking.aws_subnet.public[1]: Creation complete after 1s [id=subnet-04a7d641d5c5e003c]
+module.networking.aws_eip.nat[0]: Creating...
+module.networking.aws_eip.nat[1]: Creating...
+module.networking.aws_route_table.public: Creation complete after 2s [id=rtb-0011905a8051db143]
+module.networking.aws_internet_gateway.igw: Creation complete after 2s [id=igw-0da7fe9233ed7bf4f]
+module.networking.aws_route_table_association.public[1]: Creating...
+module.networking.aws_route_table_association.public[0]: Creating...
+module.networking.aws_route.public: Creating...
+module.networking.aws_route_table_association.public[0]: Creation complete after 0s [id=rtbassoc-06d067fcf0a984a56]
+module.networking.aws_route_table_association.public[1]: Creation complete after 0s [id=rtbassoc-0190e0a41c10e0c75]
+module.networking.aws_route_table.private[0]: Creation complete after 1s [id=rtb-0ef06b9b89bbe66cd]
+module.networking.aws_eip.nat[0]: Creation complete after 1s [id=eipalloc-0cf1f073406cfcfb3]
+module.networking.aws_route_table.private[1]: Creation complete after 2s [id=rtb-0fee3e05f6c121819]
+module.networking.aws_route.public: Creation complete after 1s [id=r-rtb-0011905a8051db1431080289494]
+module.networking.aws_route_table_association.private[0]: Creating...
+module.networking.aws_route_table_association.private[1]: Creating...
+module.networking.aws_eip.nat[1]: Creation complete after 2s [id=eipalloc-0a15ce86b6a88f0b0]
+module.networking.aws_nat_gateway.ngw[0]: Creating...
+module.networking.aws_nat_gateway.ngw[1]: Creating...
+module.networking.aws_route_table_association.private[0]: Creation complete after 0s [id=rtbassoc-0b2c5bdb977d8809d]
+module.networking.aws_route_table_association.private[1]: Creation complete after 0s [id=rtbassoc-07e07f5c99f05b2e7]
+aws_route53_record.vpn["vpn.estenssoros.com"]: Still creating... [10s elapsed]
+aws_route53_record.vpn["www.vpn.estenssoros.com"]: Still creating... [10s elapsed]
+aws_security_group.vpn_access: Creation complete after 4s [id=sg-054d44d01727b23df]
+aws_ec2_client_vpn_endpoint.vpn: Creating...
+module.networking.aws_nat_gateway.ngw[1]: Still creating... [10s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Still creating... [10s elapsed]
+aws_route53_record.vpn["www.vpn.estenssoros.com"]: Still creating... [20s elapsed]
+aws_route53_record.vpn["vpn.estenssoros.com"]: Still creating... [20s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Still creating... [20s elapsed]
+module.networking.aws_nat_gateway.ngw[1]: Still creating... [20s elapsed]
+aws_route53_record.vpn["vpn.estenssoros.com"]: Still creating... [30s elapsed]
+aws_route53_record.vpn["www.vpn.estenssoros.com"]: Still creating... [30s elapsed]
+aws_route53_record.vpn["vpn.estenssoros.com"]: Creation complete after 36s [id=Z16UZ8Y7MVL91W__e0e010a634d8f5d9b2560163eedc0ed5.vpn.estenssoros.com._CNAME]
+aws_route53_record.vpn["www.vpn.estenssoros.com"]: Creation complete after 38s [id=Z16UZ8Y7MVL91W__381f3bac98e2e6b37f8d6616617285b1.www.vpn.estenssoros.com._CNAME]
+aws_acm_certificate_validation.vpn: Creating...
+aws_acm_certificate_validation.vpn: Creation complete after 2s [id=2023-10-03 13:21:08.014 +0000 UTC]
+module.networking.aws_nat_gateway.ngw[0]: Still creating... [30s elapsed]
+module.networking.aws_nat_gateway.ngw[1]: Still creating... [30s elapsed]
+module.networking.aws_nat_gateway.ngw[1]: Still creating... [40s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Still creating... [40s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Still creating... [50s elapsed]
+module.networking.aws_nat_gateway.ngw[1]: Still creating... [50s elapsed]
+module.networking.aws_nat_gateway.ngw[1]: Still creating... [1m0s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Still creating... [1m0s elapsed]
+module.networking.aws_nat_gateway.ngw[1]: Still creating... [1m10s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Still creating... [1m10s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Still creating... [1m20s elapsed]
+module.networking.aws_nat_gateway.ngw[1]: Still creating... [1m20s elapsed]
+module.networking.aws_nat_gateway.ngw[1]: Still creating... [1m30s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Still creating... [1m30s elapsed]
+module.networking.aws_nat_gateway.ngw[1]: Still creating... [1m40s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Still creating... [1m40s elapsed]
+module.networking.aws_nat_gateway.ngw[1]: Still creating... [1m50s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Still creating... [1m50s elapsed]
+module.networking.aws_nat_gateway.ngw[1]: Creation complete after 1m58s [id=nat-0d279355e1008ae17]
+module.networking.aws_nat_gateway.ngw[0]: Still creating... [2m0s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Still creating... [2m10s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Creation complete after 2m19s [id=nat-082e37179c2752e22]
+module.networking.aws_route.nat[0]: Creating...
+module.networking.aws_route.nat[1]: Creating...
+module.networking.aws_route.nat[0]: Creation complete after 1s [id=r-rtb-0ef06b9b89bbe66cd1080289494]
+module.networking.aws_route.nat[1]: Creation complete after 1s [id=r-rtb-0fee3e05f6c1218191080289494]
+aws_ec2_client_vpn_endpoint.vpn: Creating...
+aws_ec2_client_vpn_endpoint.vpn: Creation complete after 3s [id=cvpn-endpoint-07dcae05ef03a8c56]
+aws_ec2_client_vpn_authorization_rule.vpn: Creating...
+aws_ec2_client_vpn_network_association.vpn[1]: Creating...
+aws_ec2_client_vpn_network_association.vpn[0]: Creating...
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [20s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [30s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [40s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [40s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [1m0s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [1m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [1m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [1m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [1m10s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [1m10s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [1m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [1m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [1m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [1m30s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [1m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [1m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [1m40s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [1m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [1m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [1m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [1m50s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [1m50s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [2m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [2m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [2m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [2m10s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [2m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [2m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [2m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [2m20s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [2m20s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [2m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [2m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [2m30s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [2m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [2m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [2m40s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [2m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [2m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [2m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [3m0s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [3m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [3m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [3m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [3m10s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [3m10s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [3m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [3m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [3m20s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [3m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [3m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [3m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [3m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [3m40s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [3m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [3m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [3m50s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [3m50s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [4m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [4m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [4m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [4m10s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [4m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [4m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [4m20s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [4m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [4m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [4m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [4m30s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [4m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [4m40s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [4m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [4m40s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [4m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [4m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [4m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [5m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [5m0s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [5m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [5m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [5m10s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [5m10s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [5m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [5m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [5m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [5m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [5m30s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [5m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [5m40s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [5m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [5m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [5m50s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [5m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [5m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [6m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [6m0s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [6m0s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [6m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [6m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [6m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [6m20s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [6m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [6m20s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [6m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [6m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [6m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [6m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [6m40s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [6m40s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [6m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [6m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [6m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [7m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [7m0s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [7m0s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [7m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [7m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [7m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [7m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [7m20s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [7m20s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [7m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [7m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [7m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [7m40s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [7m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [7m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [7m50s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [7m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still creating... [7m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Creation complete after 8m0s [id=cvpn-assoc-050ec484a518ea47d]
+aws_ec2_client_vpn_authorization_rule.vpn: Still creating... [8m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still creating... [8m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Creation complete after 8m0s [id=cvpn-assoc-02fcf609bf31119e3]
+aws_ec2_client_vpn_authorization_rule.vpn: Creation complete after 8m0s [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16]
+
+Apply complete! Resources: 4 added, 2 changed, 0 destroyed.
+
+Outputs:
+
+region = "us-east-2"
+vpn_endpoint = "cvpn-endpoint-07dcae05ef03a8c56"

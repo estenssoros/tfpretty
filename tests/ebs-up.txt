@@ -1,0 +1,601 @@
+
+Initializing the backend...
+Upgrading modules...
+- blob in ../modules/blob
+- database in ../modules/database
+- ebs in ../modules/ebs
+- ebs.certificate in ../modules/certificates
+- networking in ../modules/networking
+- website in ../modules/website
+- website.certificates in ../modules/certificates
+
+Initializing provider plugins...
+- Finding latest version of hashicorp/template...
+- Finding latest version of hashicorp/local...
+- Finding latest version of hashicorp/http...
+- Finding hashicorp/aws versions matching "~> 5.0"...
+- Finding latest version of hashicorp/random...
+- Using previously-installed hashicorp/aws v5.19.0
+- Using previously-installed hashicorp/random v3.5.1
+- Using previously-installed hashicorp/template v2.2.0
+- Using previously-installed hashicorp/local v2.4.0
+- Using previously-installed hashicorp/http v3.4.0
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+random_pet.secret_name: Refreshing state... [id=thorough-impala]
+module.networking.random_id.db_subnet_name: Refreshing state... [id=HblKx4yyTdc]
+module.database.random_uuid.database_password: Refreshing state... [id=a32d325a-d5bd-0496-9de6-bb08476c2bdc]
+module.blob.random_pet.bucket_name: Refreshing state... [id=inviting-guinea]
+module.ebs.random_pet.ebs_bucket_name: Refreshing state... [id=engaging-tuna]
+module.ebs.data.http.myip: Reading...
+module.ebs.data.http.myip: Read complete after 0s [id=http://ipv4.icanhazip.com]
+module.ebs.data.aws_route53_zone.hosted_zone: Reading...
+module.networking.aws_vpc.aws_vpc: Refreshing state... [id=vpc-0a6c39ce9d81e59ce]
+aws_ecr_repository.app: Refreshing state... [id=stem-stickers-test]
+module.website.aws_s3_bucket.root_bucket: Refreshing state... [id=test.stem-stickers.com]
+module.blob.aws_s3_bucket.blob_bucket: Refreshing state... [id=stem-stickers-inviting-guinea]
+module.website.aws_s3_bucket.www_bucket: Refreshing state... [id=www.test.stem-stickers.com]
+module.ebs.aws_elastic_beanstalk_application.app: Refreshing state... [id=stem-stickers-test]
+module.ebs.aws_s3_bucket.ebs: Refreshing state... [id=stem-stickers-test-engaging-tuna]
+module.website.data.aws_route53_zone.app_zone: Reading...
+module.ebs.aws_iam_role.ebs: Refreshing state... [id=stem-stickers-test-ebs]
+module.website.data.aws_route53_zone.app_zone: Read complete after 1s [id=Z0883084KHFGKGL2BH60]
+aws_secretsmanager_secret.config: Refreshing state... [id=arn:aws:secretsmanager:us-west-2:001928331621:secret:stem-stickers-config-thorough-impala-fanQE4]
+module.ebs.data.aws_route53_zone.hosted_zone: Read complete after 1s [id=Z0883084KHFGKGL2BH60]
+module.ebs.module.certificate.data.aws_route53_zone.website: Reading...
+module.ebs.module.certificate.aws_acm_certificate.website: Refreshing state... [id=arn:aws:acm:us-west-2:001928331621:certificate/26269db4-dfd8-45ad-a607-377d0ed4d1b9]
+module.website.module.certificates.data.aws_route53_zone.website: Reading...
+module.website.module.certificates.aws_acm_certificate.website: Refreshing state... [id=arn:aws:acm:us-east-1:001928331621:certificate/e4a612b6-24d1-4e88-8f90-7adb2a396cb0]
+module.ebs.data.template_file.ebs_config: Reading...
+module.ebs.data.template_file.ebs_config: Read complete after 0s [id=e386acbc2147b791ac2b44480ed4505f17630d628a1fb7d7a2d82fd102e2d9bd]
+module.ebs.aws_iam_policy.ecr: Refreshing state... [id=arn:aws:iam::001928331621:policy/stem-stickers-test-ECRFullAccessPolicy]
+module.ebs.aws_iam_instance_profile.beanstalk_iam_instance_profile: Refreshing state... [id=stem-stickers-test-beanstalk-iam-instance-profile]
+module.ebs.aws_iam_role_policy_attachment.worker_tier: Refreshing state... [id=stem-stickers-test-ebs-20230917192824182700000001]
+module.ebs.aws_iam_role_policy_attachment.multicontainre_docker: Refreshing state... [id=stem-stickers-test-ebs-20230917192824228600000002]
+module.ebs.module.certificate.data.aws_route53_zone.website: Read complete after 1s [id=Z0883084KHFGKGL2BH60]
+module.ebs.aws_iam_role_policy_attachment.web_tier: Refreshing state... [id=stem-stickers-test-ebs-20230917192824237000000003]
+module.ebs.local_file.ebs_config: Refreshing state... [id=7d0ca5dd3ea13b36bdbcb7ef065c5a50b132091d]
+module.networking.aws_route_table.public: Refreshing state... [id=rtb-082e14d56280ea473]
+module.networking.aws_route_table.private[0]: Refreshing state... [id=rtb-065ade74dd61470a6]
+module.networking.aws_route_table.private[1]: Refreshing state... [id=rtb-055b48d9156599773]
+module.networking.aws_subnet.public[0]: Refreshing state... [id=subnet-0712e298c914976ef]
+module.networking.aws_subnet.public[1]: Refreshing state... [id=subnet-00352252ffa99aa35]
+module.website.module.certificates.data.aws_route53_zone.website: Read complete after 2s [id=Z0883084KHFGKGL2BH60]
+module.networking.aws_subnet.private[0]: Refreshing state... [id=subnet-07ab235b334cf7aa4]
+module.networking.aws_subnet.private[1]: Refreshing state... [id=subnet-083f6352ebd26be66]
+module.ebs.module.certificate.aws_route53_record.website["api-test.stem-stickers.com"]: Refreshing state... [id=Z0883084KHFGKGL2BH60__9ec1ac6b91fe0c1c20c082bf4e93541f.api-test.stem-stickers.com._CNAME]
+module.ebs.module.certificate.aws_route53_record.website["www.api-test.stem-stickers.com"]: Refreshing state... [id=Z0883084KHFGKGL2BH60__efef4e20a33a6ebb66f8459d24a96286.www.api-test.stem-stickers.com._CNAME]
+module.ebs.aws_iam_policy.config_secret: Refreshing state... [id=arn:aws:iam::001928331621:policy/stem-stickers-test-ConfigSecretReader]
+module.ebs.aws_iam_role_policy_attachment.ecr: Refreshing state... [id=stem-stickers-test-ebs-20230917192824568300000007]
+aws_security_group.database: Refreshing state... [id=sg-0d0b93cae62383f04]
+module.website.module.certificates.aws_route53_record.website["www.test.stem-stickers.com"]: Refreshing state... [id=Z0883084KHFGKGL2BH60__3d276fd483ef2e4285b907c6c0b5bbbb.www.test.stem-stickers.com._CNAME]
+module.website.module.certificates.aws_route53_record.website["test.stem-stickers.com"]: Refreshing state... [id=Z0883084KHFGKGL2BH60__df6d21e87d121cdad0f539c7ddda4270.test.stem-stickers.com._CNAME]
+module.networking.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-0167c324739eaaf4f]
+module.networking.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-0d6b45e201e5bd62d]
+module.networking.aws_db_subnet_group.db_subnet_group: Refreshing state... [id=db-subnet-group-1db94ac78cb24dd7]
+module.networking.aws_route_table_association.private[1]: Refreshing state... [id=rtbassoc-0fd352ac604998a41]
+module.networking.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-033357fb582a5e4f0]
+module.ebs.aws_iam_role_policy_attachment.secret: Refreshing state... [id=stem-stickers-test-ebs-20230917192824362700000004]
+module.ebs.module.certificate.aws_acm_certificate_validation.website: Refreshing state... [id=2023-09-20 11:54:17.828 +0000 UTC]
+module.ebs.aws_security_group.ebs: Refreshing state... [id=sg-0cd9b7bf49848c901]
+module.blob.aws_s3_bucket_policy.www_bucket: Refreshing state... [id=stem-stickers-inviting-guinea]
+module.blob.aws_s3_bucket_ownership_controls.blob_bucket: Refreshing state... [id=stem-stickers-inviting-guinea]
+module.blob.aws_s3_bucket_public_access_block.blob_bucket: Refreshing state... [id=stem-stickers-inviting-guinea]
+module.ebs.aws_s3_object.ebs_deployment: Refreshing state... [id=Dockerrun.aws.json]
+module.website.module.certificates.aws_acm_certificate_validation.website: Refreshing state... [id=2023-09-10 21:41:48.372 +0000 UTC]
+module.ebs.aws_iam_policy.bucket: Refreshing state... [id=arn:aws:iam::001928331621:policy/stem-stickers-test-S3BucketPolicy]
+module.blob.aws_s3_bucket_acl.bucket_acl: Refreshing state... [id=stem-stickers-inviting-guinea,public-read]
+module.ebs.aws_elastic_beanstalk_application_version.app_version: Refreshing state... [id=stem-stickers-test-version]
+module.ebs.aws_iam_role_policy_attachment.bucket: Refreshing state... [id=stem-stickers-test-ebs-20230917192824412300000005]
+module.database.aws_rds_cluster.app_rds_cluster: Refreshing state... [id=stem-stickers-test-cluster]
+module.website.aws_s3_bucket_policy.www_bucket: Refreshing state... [id=www.test.stem-stickers.com]
+module.website.aws_s3_bucket_ownership_controls.www_bucket: Refreshing state... [id=www.test.stem-stickers.com]
+module.website.aws_s3_bucket_public_access_block.www_bucket: Refreshing state... [id=www.test.stem-stickers.com]
+module.website.aws_s3_bucket_cors_configuration.www_bucket: Refreshing state... [id=www.test.stem-stickers.com]
+module.website.aws_s3_bucket_website_configuration.www_bucket: Refreshing state... [id=www.test.stem-stickers.com]
+module.website.aws_s3_bucket_policy.root_bucket: Refreshing state... [id=test.stem-stickers.com]
+module.website.aws_s3_bucket_ownership_controls.root_bucket: Refreshing state... [id=test.stem-stickers.com]
+module.website.aws_s3_bucket_website_configuration.root_bucket: Refreshing state... [id=test.stem-stickers.com]
+module.website.aws_s3_bucket_public_access_block.root_bucket: Refreshing state... [id=test.stem-stickers.com]
+module.website.aws_s3_bucket_acl.www_bucket: Refreshing state... [id=www.test.stem-stickers.com,public-read]
+data.template_file.config: Reading...
+module.ebs.aws_iam_policy.database: Refreshing state... [id=arn:aws:iam::001928331621:policy/stem-stickers-test-RDSClusterPolicy]
+data.template_file.config: Read complete after 0s [id=13d2161bedfcbf7abcb3388eeeec859f550903a08f3aa176b2d6908aff3c7840]
+aws_secretsmanager_secret_version.example: Refreshing state... [id=arn:aws:secretsmanager:us-west-2:001928331621:secret:stem-stickers-config-thorough-impala-fanQE4|DB4019F2-613A-486F-9CF7-B4CC4EAD8D92]
+module.ebs.aws_iam_role_policy_attachment.database: Refreshing state... [id=stem-stickers-test-ebs-20230917192824438000000006]
+module.website.aws_s3_bucket_acl.root_bucket: Refreshing state... [id=test.stem-stickers.com,public-read]
+module.website.aws_cloudfront_distribution.www_s3_distribution: Refreshing state... [id=E2AQDZPOIHPKLH]
+module.website.aws_cloudfront_distribution.root_s3_distribution: Refreshing state... [id=EYZLLTSNA5HD1]
+module.website.aws_route53_record.www-a: Refreshing state... [id=Z0883084KHFGKGL2BH60_www.test.stem-stickers.com_A]
+module.website.aws_route53_record.root-a: Refreshing state... [id=Z0883084KHFGKGL2BH60_test.stem-stickers.com_A]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+  ~ update in-place
+-/+ destroy and then create replacement
+ <= read (data resources)
+
+Terraform will perform the following actions:
+
+  # module.ebs.data.aws_instance.ebs[0] will be read during apply
+  # (config refers to values not yet known)
+ <= data "aws_instance" "ebs" {
+      + ami                         = (known after apply)
+      + arn                         = (known after apply)
+      + associate_public_ip_address = (known after apply)
+      + availability_zone           = (known after apply)
+      + credit_specification        = (known after apply)
+      + disable_api_stop            = (known after apply)
+      + disable_api_termination     = (known after apply)
+      + ebs_block_device            = (known after apply)
+      + ebs_optimized               = (known after apply)
+      + enclave_options             = (known after apply)
+      + ephemeral_block_device      = (known after apply)
+      + host_id                     = (known after apply)
+      + host_resource_group_arn     = (known after apply)
+      + iam_instance_profile        = (known after apply)
+      + id                          = (known after apply)
+      + instance_id                 = (known after apply)
+      + instance_state              = (known after apply)
+      + instance_tags               = (known after apply)
+      + instance_type               = (known after apply)
+      + ipv6_addresses              = (known after apply)
+      + key_name                    = (known after apply)
+      + maintenance_options         = (known after apply)
+      + metadata_options            = (known after apply)
+      + monitoring                  = (known after apply)
+      + network_interface_id        = (known after apply)
+      + outpost_arn                 = (known after apply)
+      + password_data               = (known after apply)
+      + placement_group             = (known after apply)
+      + placement_partition_number  = (known after apply)
+      + private_dns                 = (known after apply)
+      + private_dns_name_options    = (known after apply)
+      + private_ip                  = (known after apply)
+      + public_dns                  = (known after apply)
+      + public_ip                   = (known after apply)
+      + root_block_device           = (known after apply)
+      + secondary_private_ips       = (known after apply)
+      + security_groups             = (known after apply)
+      + source_dest_check           = (known after apply)
+      + subnet_id                   = (known after apply)
+      + tags                        = (known after apply)
+      + tenancy                     = (known after apply)
+      + user_data                   = (known after apply)
+      + user_data_base64            = (known after apply)
+      + vpc_security_group_ids      = (known after apply)
+    }
+
+  # module.ebs.aws_elastic_beanstalk_application_version.app_version must be replaced
+-/+ resource "aws_elastic_beanstalk_application_version" "app_version" {
+      ~ arn          = "arn:aws:elasticbeanstalk:us-west-2:001928331621:applicationversion/stem-stickers-test/stem-stickers-test-version" -> (known after apply)
+      ~ id           = "stem-stickers-test-version" -> (known after apply)
+      ~ key          = "Dockerrun.aws.json" # forces replacement -> (known after apply) # forces replacement
+        name         = "stem-stickers-test-version"
+      - tags         = {} -> null
+      ~ tags_all     = {} -> (known after apply)
+        # (3 unchanged attributes hidden)
+    }
+
+  # module.ebs.aws_elastic_beanstalk_environment.env[0] will be created
+  + resource "aws_elastic_beanstalk_environment" "env" {
+      + all_settings           = (known after apply)
+      + application            = "stem-stickers-test"
+      + arn                    = (known after apply)
+      + autoscaling_groups     = (known after apply)
+      + cname                  = (known after apply)
+      + cname_prefix           = (known after apply)
+      + endpoint_url           = (known after apply)
+      + id                     = (known after apply)
+      + instances              = (known after apply)
+      + launch_configurations  = (known after apply)
+      + load_balancers         = (known after apply)
+      + name                   = "stem-stickers-test-env"
+      + platform_arn           = (known after apply)
+      + queues                 = (known after apply)
+      + solution_stack_name    = "64bit Amazon Linux 2023 v4.0.1 running Docker"
+      + tags_all               = (known after apply)
+      + tier                   = "WebServer"
+      + triggers               = (known after apply)
+      + version_label          = "stem-stickers-test-version"
+      + wait_for_ready_timeout = "10m"
+
+      + setting {
+          + name      = "DeleteOnTerminate"
+          + namespace = "aws:elasticbeanstalk:cloudwatch:logs"
+          + value     = "true"
+        }
+      + setting {
+          + name      = "DeleteOnTerminate"
+          + namespace = "aws:elasticbeanstalk:cloudwatch:logs:health"
+          + value     = "true"
+        }
+      + setting {
+          + name      = "EC2KeyName"
+          + namespace = "aws:autoscaling:launchconfiguration"
+          + value     = "us-west-2-key-pair"
+        }
+      + setting {
+          + name      = "IamInstanceProfile"
+          + namespace = "aws:autoscaling:launchconfiguration"
+          + value     = "arn:aws:iam::001928331621:instance-profile/stem-stickers-test-beanstalk-iam-instance-profile"
+        }
+      + setting {
+          + name      = "InstancePort"
+          + namespace = "aws:cloudformation:template:parameter"
+          + value     = "1323"
+        }
+      + setting {
+          + name      = "SSLCertificateId"
+          + namespace = "aws:elb:loadbalancer"
+          + value     = "arn:aws:acm:us-west-2:001928331621:certificate/26269db4-dfd8-45ad-a607-377d0ed4d1b9"
+        }
+      + setting {
+          + name      = "STEM_STICKERS_REMOTE_CONFIG"
+          + namespace = "aws:elasticbeanstalk:application:environment"
+          + value     = "arn:aws:secretsmanager:us-west-2:001928331621:secret:stem-stickers-config-thorough-impala-fanQE4"
+        }
+      + setting {
+          + name      = "SecurityGroups"
+          + namespace = "aws:autoscaling:launchconfiguration"
+          + value     = "sg-0d0b93cae62383f04,sg-0cd9b7bf49848c901"
+        }
+      + setting {
+          + name      = "Subnets"
+          + namespace = "aws:ec2:vpc"
+          + value     = "subnet-0712e298c914976ef,subnet-00352252ffa99aa35"
+        }
+      + setting {
+          + name      = "VPCId"
+          + namespace = "aws:ec2:vpc"
+          + value     = "vpc-0a6c39ce9d81e59ce"
+        }
+    }
+
+  # module.ebs.aws_route53_record.lb[0] will be created
+  + resource "aws_route53_record" "lb" {
+      + allow_overwrite = (known after apply)
+      + fqdn            = (known after apply)
+      + id              = (known after apply)
+      + name            = "api-test.stem-stickers.com"
+      + records         = (known after apply)
+      + ttl             = 5
+      + type            = "CNAME"
+      + zone_id         = "Z0883084KHFGKGL2BH60"
+    }
+
+  # module.ebs.aws_s3_object.ebs_deployment will be replaced due to changes in replace_triggered_by
+-/+ resource "aws_s3_object" "ebs_deployment" {
+      + acl                    = (known after apply)
+      ~ bucket_key_enabled     = false -> (known after apply)
+      + checksum_crc32         = (known after apply)
+      + checksum_crc32c        = (known after apply)
+      + checksum_sha1          = (known after apply)
+      + checksum_sha256        = (known after apply)
+      ~ content_type           = "application/octet-stream" -> (known after apply)
+      ~ etag                   = "47d12987bd283f7d0334a7a90edfbc45" -> (known after apply)
+      ~ id                     = "Dockerrun.aws.json" -> (known after apply)
+      + kms_key_id             = (known after apply)
+      - metadata               = {} -> null
+      ~ server_side_encryption = "AES256" -> (known after apply)
+      ~ storage_class          = "STANDARD" -> (known after apply)
+      - tags                   = {} -> null
+      ~ tags_all               = {} -> (known after apply)
+      + version_id             = (known after apply)
+        # (4 unchanged attributes hidden)
+    }
+
+  # module.ebs.aws_security_group.ebs will be updated in-place
+  ~ resource "aws_security_group" "ebs" {
+        id                     = "sg-0cd9b7bf49848c901"
+      ~ ingress                = [
+          - {
+              - cidr_blocks      = [
+                  - "79.30.78.135/32",
+                ]
+              - description      = ""
+              - from_port        = 22
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "tcp"
+              - security_groups  = []
+              - self             = true
+              - to_port          = 22
+            },
+          + {
+              + cidr_blocks      = [
+                  + "88.147.24.95/32",
+                ]
+              + description      = ""
+              + from_port        = 22
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = true
+              + to_port          = 22
+            },
+        ]
+        name                   = "stem-stickers-test-ebs"
+        tags                   = {}
+        # (7 unchanged attributes hidden)
+    }
+
+  # module.ebs.local_file.ebs_config must be replaced
+-/+ resource "local_file" "ebs_config" {
+      ~ content              = jsonencode(
+          ~ {
+              ~ Image                 = {
+                  ~ Name   = "001928331621.dkr.ecr.us-west-2.amazonaws.com/stem-stickers-test:v0.1.0_7235847" -> "001928331621.dkr.ecr.us-west-2.amazonaws.com/stem-stickers-test:v0.1.0_6a291b0"
+                    # (1 unchanged attribute hidden)
+                }
+                # (4 unchanged attributes hidden)
+            } # forces replacement
+        )
+      ~ content_base64sha256 = "OSbEkBdHyMKeIhBg6ow52Rflyn9XlpadOrhEuv7Lxsw=" -> (known after apply)
+      ~ content_base64sha512 = "36J91Ij/G6Tl9AlUm/p3y9EU3N04uylDYScvELDR2jVIjkk/nSOg3SP6eqEhVQpNhugO5aSx0Mp7ZrfXueoIOA==" -> (known after apply)
+      ~ content_md5          = "47d12987bd283f7d0334a7a90edfbc45" -> (known after apply)
+      ~ content_sha1         = "7d0ca5dd3ea13b36bdbcb7ef065c5a50b132091d" -> (known after apply)
+      ~ content_sha256       = "3926c4901747c8c29e221060ea8c39d917e5ca7f5796969d3ab844bafecbc6cc" -> (known after apply)
+      ~ content_sha512       = "dfa27dd488ff1ba4e5f409549bfa77cbd114dcdd38bb294361272f10b0d1da35488e493f9d23a0dd23fa7aa121550a4d86e80ee5a4b1d0ca7b66b7d7b9ea0838" -> (known after apply)
+      ~ id                   = "7d0ca5dd3ea13b36bdbcb7ef065c5a50b132091d" -> (known after apply)
+        # (3 unchanged attributes hidden)
+    }
+
+  # module.networking.aws_eip.nat[0] will be created
+  + resource "aws_eip" "nat" {
+      + allocation_id        = (known after apply)
+      + association_id       = (known after apply)
+      + carrier_ip           = (known after apply)
+      + customer_owned_ip    = (known after apply)
+      + domain               = "vpc"
+      + id                   = (known after apply)
+      + instance             = (known after apply)
+      + network_border_group = (known after apply)
+      + network_interface    = (known after apply)
+      + private_dns          = (known after apply)
+      + private_ip           = (known after apply)
+      + public_dns           = (known after apply)
+      + public_ip            = (known after apply)
+      + public_ipv4_pool     = (known after apply)
+      + tags                 = {
+          + "Name" = "stem-stickers-test-eip"
+        }
+      + tags_all             = {
+          + "Name" = "stem-stickers-test-eip"
+        }
+      + vpc                  = (known after apply)
+    }
+
+  # module.networking.aws_eip.nat[1] will be created
+  + resource "aws_eip" "nat" {
+      + allocation_id        = (known after apply)
+      + association_id       = (known after apply)
+      + carrier_ip           = (known after apply)
+      + customer_owned_ip    = (known after apply)
+      + domain               = "vpc"
+      + id                   = (known after apply)
+      + instance             = (known after apply)
+      + network_border_group = (known after apply)
+      + network_interface    = (known after apply)
+      + private_dns          = (known after apply)
+      + private_ip           = (known after apply)
+      + public_dns           = (known after apply)
+      + public_ip            = (known after apply)
+      + public_ipv4_pool     = (known after apply)
+      + tags                 = {
+          + "Name" = "stem-stickers-test-eip"
+        }
+      + tags_all             = {
+          + "Name" = "stem-stickers-test-eip"
+        }
+      + vpc                  = (known after apply)
+    }
+
+  # module.networking.aws_internet_gateway.aws_igw[0] will be created
+  + resource "aws_internet_gateway" "aws_igw" {
+      + arn      = (known after apply)
+      + id       = (known after apply)
+      + owner_id = (known after apply)
+      + tags     = {
+          + "Name" = "stem-stickers-test-igw"
+        }
+      + tags_all = {
+          + "Name" = "stem-stickers-test-igw"
+        }
+      + vpc_id   = "vpc-0a6c39ce9d81e59ce"
+    }
+
+  # module.networking.aws_nat_gateway.main[0] will be created
+  + resource "aws_nat_gateway" "main" {
+      + allocation_id                      = (known after apply)
+      + association_id                     = (known after apply)
+      + connectivity_type                  = "public"
+      + id                                 = (known after apply)
+      + network_interface_id               = (known after apply)
+      + private_ip                         = (known after apply)
+      + public_ip                          = (known after apply)
+      + secondary_private_ip_address_count = (known after apply)
+      + secondary_private_ip_addresses     = (known after apply)
+      + subnet_id                          = "subnet-0712e298c914976ef"
+      + tags                               = {
+          + "Name" = "stem-stickers-test-nat-gateway"
+        }
+      + tags_all                           = {
+          + "Name" = "stem-stickers-test-nat-gateway"
+        }
+    }
+
+  # module.networking.aws_nat_gateway.main[1] will be created
+  + resource "aws_nat_gateway" "main" {
+      + allocation_id                      = (known after apply)
+      + association_id                     = (known after apply)
+      + connectivity_type                  = "public"
+      + id                                 = (known after apply)
+      + network_interface_id               = (known after apply)
+      + private_ip                         = (known after apply)
+      + public_ip                          = (known after apply)
+      + secondary_private_ip_address_count = (known after apply)
+      + secondary_private_ip_addresses     = (known after apply)
+      + subnet_id                          = "subnet-00352252ffa99aa35"
+      + tags                               = {
+          + "Name" = "stem-stickers-test-nat-gateway"
+        }
+      + tags_all                           = {
+          + "Name" = "stem-stickers-test-nat-gateway"
+        }
+    }
+
+  # module.networking.aws_route.private[0] will be created
+  + resource "aws_route" "private" {
+      + destination_cidr_block = "0.0.0.0/0"
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + nat_gateway_id         = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = "rtb-065ade74dd61470a6"
+      + state                  = (known after apply)
+    }
+
+  # module.networking.aws_route.private[1] will be created
+  + resource "aws_route" "private" {
+      + destination_cidr_block = "0.0.0.0/0"
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + nat_gateway_id         = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = "rtb-055b48d9156599773"
+      + state                  = (known after apply)
+    }
+
+  # module.networking.aws_route.public[0] will be created
+  + resource "aws_route" "public" {
+      + destination_cidr_block = "0.0.0.0/0"
+      + gateway_id             = (known after apply)
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = "rtb-082e14d56280ea473"
+      + state                  = (known after apply)
+    }
+
+Plan: 13 to add, 1 to change, 3 to destroy.
+
+Changes to Outputs:
+  + bastion_public_dns              = (known after apply)
+  + ebs_instance                    = (known after apply)
+module.ebs.aws_elastic_beanstalk_application_version.app_version: Destroying... [id=stem-stickers-test-version]
+module.networking.aws_internet_gateway.aws_igw[0]: Creating...
+module.networking.aws_eip.nat[1]: Creating...
+module.networking.aws_eip.nat[0]: Creating...
+module.ebs.aws_security_group.ebs: Modifying... [id=sg-0cd9b7bf49848c901]
+module.ebs.aws_elastic_beanstalk_application_version.app_version: Destruction complete after 2s
+module.ebs.aws_s3_object.ebs_deployment: Destroying... [id=Dockerrun.aws.json]
+module.networking.aws_eip.nat[0]: Creation complete after 2s [id=eipalloc-0e5ff8b663c85ffbc]
+module.networking.aws_eip.nat[1]: Creation complete after 2s [id=eipalloc-0a767a67fbc86f2a9]
+module.networking.aws_internet_gateway.aws_igw[0]: Creation complete after 2s [id=igw-0d8e9815bd03653a0]
+module.networking.aws_route.public[0]: Creating...
+module.networking.aws_nat_gateway.main[1]: Creating...
+module.networking.aws_nat_gateway.main[0]: Creating...
+module.ebs.aws_security_group.ebs: Modifications complete after 3s [id=sg-0cd9b7bf49848c901]
+module.ebs.aws_s3_object.ebs_deployment: Destruction complete after 1s
+module.ebs.local_file.ebs_config: Destroying... [id=7d0ca5dd3ea13b36bdbcb7ef065c5a50b132091d]
+module.ebs.local_file.ebs_config: Destruction complete after 0s
+module.ebs.local_file.ebs_config: Creating...
+module.ebs.local_file.ebs_config: Creation complete after 0s [id=deef83c3a50ad0c9d4a0734b3aed8d509815f9c5]
+module.ebs.aws_s3_object.ebs_deployment: Creating...
+module.ebs.aws_s3_object.ebs_deployment: Creation complete after 1s [id=Dockerrun.aws.json]
+module.ebs.aws_elastic_beanstalk_application_version.app_version: Creating...
+module.networking.aws_route.public[0]: Creation complete after 2s [id=r-rtb-082e14d56280ea4731080289494]
+module.ebs.aws_elastic_beanstalk_application_version.app_version: Creation complete after 1s [id=stem-stickers-test-version]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Creating...
+module.networking.aws_nat_gateway.main[1]: Still creating... [10s elapsed]
+module.networking.aws_nat_gateway.main[0]: Still creating... [10s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [10s elapsed]
+module.networking.aws_nat_gateway.main[0]: Still creating... [20s elapsed]
+module.networking.aws_nat_gateway.main[1]: Still creating... [20s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [20s elapsed]
+module.networking.aws_nat_gateway.main[0]: Still creating... [30s elapsed]
+module.networking.aws_nat_gateway.main[1]: Still creating... [30s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [30s elapsed]
+module.networking.aws_nat_gateway.main[0]: Still creating... [40s elapsed]
+module.networking.aws_nat_gateway.main[1]: Still creating... [40s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [40s elapsed]
+module.networking.aws_nat_gateway.main[0]: Still creating... [50s elapsed]
+module.networking.aws_nat_gateway.main[1]: Still creating... [50s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [50s elapsed]
+module.networking.aws_nat_gateway.main[0]: Still creating... [1m0s elapsed]
+module.networking.aws_nat_gateway.main[1]: Still creating... [1m0s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [1m0s elapsed]
+module.networking.aws_nat_gateway.main[0]: Still creating... [1m10s elapsed]
+module.networking.aws_nat_gateway.main[1]: Still creating... [1m10s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [1m10s elapsed]
+module.networking.aws_nat_gateway.main[1]: Still creating... [1m20s elapsed]
+module.networking.aws_nat_gateway.main[0]: Still creating... [1m20s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [1m20s elapsed]
+module.networking.aws_nat_gateway.main[1]: Creation complete after 1m27s [id=nat-012df6c3d2924f53a]
+module.networking.aws_nat_gateway.main[0]: Still creating... [1m30s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [1m30s elapsed]
+module.networking.aws_nat_gateway.main[0]: Still creating... [1m40s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [1m40s elapsed]
+module.networking.aws_nat_gateway.main[0]: Still creating... [1m50s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [1m50s elapsed]
+module.networking.aws_nat_gateway.main[0]: Creation complete after 1m58s [id=nat-0a695eaa794182010]
+module.networking.aws_route.private[1]: Creating...
+module.networking.aws_route.private[0]: Creating...
+module.networking.aws_route.private[1]: Creation complete after 2s [id=r-rtb-055b48d91565997731080289494]
+module.networking.aws_route.private[0]: Creation complete after 2s [id=r-rtb-065ade74dd61470a61080289494]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [2m0s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [2m10s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [2m20s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [2m30s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [2m40s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still creating... [2m50s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Creation complete after 2m51s [id=e-23hh2rypiy]
+module.ebs.data.aws_instance.ebs[0]: Reading...
+module.ebs.aws_route53_record.lb[0]: Creating...
+module.ebs.data.aws_instance.ebs[0]: Read complete after 2s [id=i-0b6066c52f4d9832d]
+module.ebs.aws_route53_record.lb[0]: Still creating... [10s elapsed]
+module.ebs.aws_route53_record.lb[0]: Still creating... [20s elapsed]
+module.ebs.aws_route53_record.lb[0]: Still creating... [30s elapsed]
+module.ebs.aws_route53_record.lb[0]: Still creating... [40s elapsed]
+module.ebs.aws_route53_record.lb[0]: Creation complete after 49s [id=Z0883084KHFGKGL2BH60_api-test.stem-stickers.com_CNAME]
+
+Apply complete! Resources: 13 added, 1 changed, 3 destroyed.
+
+Outputs:
+
+aws_secret_id = "arn:aws:secretsmanager:us-west-2:001928331621:secret:stem-stickers-config-thorough-impala-fanQE4"
+backend = "https://api-test.stem-stickers.com"
+bastion_public_dns = "ec2-34-212-207-83.us-west-2.compute.amazonaws.com"
+cdn_bucket = "stem-stickers-inviting-guinea"
+cloudfront_root_distribution_id = "EYZLLTSNA5HD1"
+cloudfront_www_distribution_id = "E2AQDZPOIHPKLH"
+database_host = "stem-stickers-test-cluster.cluster-c4fj4bulxsit.us-west-2.rds.amazonaws.com"
+database_name = "stem_stickers"
+database_password = <sensitive>
+database_user = "stem_stickers"
+ebs_application = "stem-stickers-test"
+ebs_environment = "stem-stickers-test-env"
+ebs_instance = "i-0b6066c52f4d9832d"
+ebs_version = "stem-stickers-test-version"
+ecr_repository_name = "stem-stickers-test"
+ecr_repository_url = "001928331621.dkr.ecr.us-west-2.amazonaws.com"
+key_name = "us-west-2-key-pair"
+region = "us-west-2"
+website_bucket = "www.test.stem-stickers.com"

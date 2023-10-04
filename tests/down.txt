@@ -1,0 +1,813 @@
+data.aws_route53_zone.domain: Reading...
+module.networking.aws_vpc.main: Refreshing state... [id=vpc-02d7b3b9e6e1353c9]
+aws_acm_certificate.cert: Refreshing state... [id=arn:aws:acm:us-east-2:001928331621:certificate/ebc9bff6-3a55-40c5-9a7a-5f3964786efb]
+data.aws_route53_zone.domain: Read complete after 1s [id=Z16UZ8Y7MVL91W]
+aws_route53_record.vpn["www.vpn.estenssoros.com"]: Refreshing state... [id=Z16UZ8Y7MVL91W__381f3bac98e2e6b37f8d6616617285b1.www.vpn.estenssoros.com._CNAME]
+aws_route53_record.vpn["vpn.estenssoros.com"]: Refreshing state... [id=Z16UZ8Y7MVL91W__e0e010a634d8f5d9b2560163eedc0ed5.vpn.estenssoros.com._CNAME]
+module.networking.aws_internet_gateway.igw: Refreshing state... [id=igw-0da7fe9233ed7bf4f]
+module.networking.aws_subnet.private[1]: Refreshing state... [id=subnet-0509a3fc8df579b2d]
+module.networking.aws_subnet.public[0]: Refreshing state... [id=subnet-046a47118b6e9b130]
+module.networking.aws_subnet.public[1]: Refreshing state... [id=subnet-04a7d641d5c5e003c]
+module.networking.aws_subnet.private[0]: Refreshing state... [id=subnet-0d6add77cd343f548]
+module.networking.aws_route_table.public: Refreshing state... [id=rtb-0011905a8051db143]
+aws_security_group.vpn_access: Refreshing state... [id=sg-054d44d01727b23df]
+aws_acm_certificate_validation.vpn: Refreshing state... [id=2023-10-03 13:21:08.014 +0000 UTC]
+module.networking.aws_route.public: Refreshing state... [id=r-rtb-0011905a8051db1431080289494]
+module.networking.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-0190e0a41c10e0c75]
+module.networking.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-06d067fcf0a984a56]
+module.networking.aws_eip.nat[0]: Refreshing state... [id=eipalloc-0cf1f073406cfcfb3]
+aws_ec2_client_vpn_endpoint.vpn: Refreshing state... [id=cvpn-endpoint-07dcae05ef03a8c56]
+module.networking.aws_eip.nat[1]: Refreshing state... [id=eipalloc-0a15ce86b6a88f0b0]
+module.networking.aws_route_table.private[1]: Refreshing state... [id=rtb-0fee3e05f6c121819]
+module.networking.aws_route_table.private[0]: Refreshing state... [id=rtb-0ef06b9b89bbe66cd]
+aws_ec2_client_vpn_authorization_rule.vpn: Refreshing state... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16]
+aws_ec2_client_vpn_network_association.vpn[0]: Refreshing state... [id=cvpn-assoc-050ec484a518ea47d]
+aws_ec2_client_vpn_network_association.vpn[1]: Refreshing state... [id=cvpn-assoc-02fcf609bf31119e3]
+module.networking.aws_nat_gateway.ngw[0]: Refreshing state... [id=nat-082e37179c2752e22]
+module.networking.aws_nat_gateway.ngw[1]: Refreshing state... [id=nat-0d279355e1008ae17]
+module.networking.aws_route_table_association.private[1]: Refreshing state... [id=rtbassoc-07e07f5c99f05b2e7]
+module.networking.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-0b2c5bdb977d8809d]
+module.networking.aws_route.nat[0]: Refreshing state... [id=r-rtb-0ef06b9b89bbe66cd1080289494]
+module.networking.aws_route.nat[1]: Refreshing state... [id=r-rtb-0fee3e05f6c1218191080289494]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # aws_acm_certificate.cert will be destroyed
+  - resource "aws_acm_certificate" "cert" {
+      - arn                       = "arn:aws:acm:us-east-2:001928331621:certificate/ebc9bff6-3a55-40c5-9a7a-5f3964786efb" -> null
+      - domain_name               = "vpn.estenssoros.com" -> null
+      - domain_validation_options = [
+          - {
+              - domain_name           = "vpn.estenssoros.com"
+              - resource_record_name  = "_e0e010a634d8f5d9b2560163eedc0ed5.vpn.estenssoros.com."
+              - resource_record_type  = "CNAME"
+              - resource_record_value = "_2717de815148cac391ee22aef7a776c7.vgvxdprndh.acm-validations.aws."
+            },
+          - {
+              - domain_name           = "www.vpn.estenssoros.com"
+              - resource_record_name  = "_381f3bac98e2e6b37f8d6616617285b1.www.vpn.estenssoros.com."
+              - resource_record_type  = "CNAME"
+              - resource_record_value = "_caac1a20144248da0d80310f0e2b9863.vgvxdprndh.acm-validations.aws."
+            },
+        ] -> null
+      - id                        = "arn:aws:acm:us-east-2:001928331621:certificate/ebc9bff6-3a55-40c5-9a7a-5f3964786efb" -> null
+      - key_algorithm             = "RSA_2048" -> null
+      - not_after                 = "2024-10-31T23:59:59Z" -> null
+      - not_before                = "2023-10-03T00:00:00Z" -> null
+      - pending_renewal           = false -> null
+      - renewal_eligibility       = "ELIGIBLE" -> null
+      - renewal_summary           = [] -> null
+      - status                    = "ISSUED" -> null
+      - subject_alternative_names = [
+          - "vpn.estenssoros.com",
+          - "www.vpn.estenssoros.com",
+        ] -> null
+      - tags                      = {} -> null
+      - tags_all                  = {} -> null
+      - type                      = "AMAZON_ISSUED" -> null
+      - validation_emails         = [] -> null
+      - validation_method         = "DNS" -> null
+
+      - options {
+          - certificate_transparency_logging_preference = "ENABLED" -> null
+        }
+    }
+
+  # aws_acm_certificate_validation.vpn will be destroyed
+  - resource "aws_acm_certificate_validation" "vpn" {
+      - certificate_arn         = "arn:aws:acm:us-east-2:001928331621:certificate/ebc9bff6-3a55-40c5-9a7a-5f3964786efb" -> null
+      - id                      = "2023-10-03 13:21:08.014 +0000 UTC" -> null
+      - validation_record_fqdns = [
+          - "_381f3bac98e2e6b37f8d6616617285b1.www.vpn.estenssoros.com",
+          - "_e0e010a634d8f5d9b2560163eedc0ed5.vpn.estenssoros.com",
+        ] -> null
+    }
+
+  # aws_ec2_client_vpn_authorization_rule.vpn will be destroyed
+  - resource "aws_ec2_client_vpn_authorization_rule" "vpn" {
+      - authorize_all_groups   = true -> null
+      - client_vpn_endpoint_id = "cvpn-endpoint-07dcae05ef03a8c56" -> null
+      - id                     = "cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16" -> null
+      - target_network_cidr    = "10.0.0.0/16" -> null
+    }
+
+  # aws_ec2_client_vpn_endpoint.vpn will be destroyed
+  - resource "aws_ec2_client_vpn_endpoint" "vpn" {
+      - arn                    = "arn:aws:ec2:us-east-2:001928331621:client-vpn-endpoint/cvpn-endpoint-07dcae05ef03a8c56" -> null
+      - client_cidr_block      = "10.192.0.0/22" -> null
+      - description            = "terraform-clientvpn" -> null
+      - dns_name               = "*.cvpn-endpoint-07dcae05ef03a8c56.prod.clientvpn.us-east-2.amazonaws.com" -> null
+      - dns_servers            = [
+          - "10.0.0.2",
+        ] -> null
+      - id                     = "cvpn-endpoint-07dcae05ef03a8c56" -> null
+      - security_group_ids     = [
+          - "sg-054d44d01727b23df",
+        ] -> null
+      - self_service_portal    = "disabled" -> null
+      - server_certificate_arn = "arn:aws:acm:us-east-2:001928331621:certificate/ebc9bff6-3a55-40c5-9a7a-5f3964786efb" -> null
+      - session_timeout_hours  = 24 -> null
+      - split_tunnel           = false -> null
+      - tags                   = {
+          - "Name" = "vpn-endpoint"
+        } -> null
+      - tags_all               = {
+          - "Name" = "vpn-endpoint"
+        } -> null
+      - transport_protocol     = "udp" -> null
+      - vpc_id                 = "vpc-02d7b3b9e6e1353c9" -> null
+      - vpn_port               = 443 -> null
+
+      - authentication_options {
+          - root_certificate_chain_arn = "arn:aws:acm:us-east-2:001928331621:certificate/ebc9bff6-3a55-40c5-9a7a-5f3964786efb" -> null
+          - type                       = "certificate-authentication" -> null
+        }
+
+      - client_connect_options {
+          - enabled = false -> null
+        }
+
+      - client_login_banner_options {
+          - enabled = false -> null
+        }
+
+      - connection_log_options {
+          - enabled = false -> null
+        }
+    }
+
+  # aws_ec2_client_vpn_network_association.vpn[0] will be destroyed
+  - resource "aws_ec2_client_vpn_network_association" "vpn" {
+      - association_id         = "cvpn-assoc-050ec484a518ea47d" -> null
+      - client_vpn_endpoint_id = "cvpn-endpoint-07dcae05ef03a8c56" -> null
+      - id                     = "cvpn-assoc-050ec484a518ea47d" -> null
+      - subnet_id              = "subnet-0d6add77cd343f548" -> null
+      - vpc_id                 = "vpc-02d7b3b9e6e1353c9" -> null
+    }
+
+  # aws_ec2_client_vpn_network_association.vpn[1] will be destroyed
+  - resource "aws_ec2_client_vpn_network_association" "vpn" {
+      - association_id         = "cvpn-assoc-02fcf609bf31119e3" -> null
+      - client_vpn_endpoint_id = "cvpn-endpoint-07dcae05ef03a8c56" -> null
+      - id                     = "cvpn-assoc-02fcf609bf31119e3" -> null
+      - subnet_id              = "subnet-0509a3fc8df579b2d" -> null
+      - vpc_id                 = "vpc-02d7b3b9e6e1353c9" -> null
+    }
+
+  # aws_route53_record.vpn["vpn.estenssoros.com"] will be destroyed
+  - resource "aws_route53_record" "vpn" {
+      - allow_overwrite                  = true -> null
+      - fqdn                             = "_e0e010a634d8f5d9b2560163eedc0ed5.vpn.estenssoros.com" -> null
+      - id                               = "Z16UZ8Y7MVL91W__e0e010a634d8f5d9b2560163eedc0ed5.vpn.estenssoros.com._CNAME" -> null
+      - multivalue_answer_routing_policy = false -> null
+      - name                             = "_e0e010a634d8f5d9b2560163eedc0ed5.vpn.estenssoros.com" -> null
+      - records                          = [
+          - "_2717de815148cac391ee22aef7a776c7.vgvxdprndh.acm-validations.aws.",
+        ] -> null
+      - ttl                              = 60 -> null
+      - type                             = "CNAME" -> null
+      - zone_id                          = "Z16UZ8Y7MVL91W" -> null
+    }
+
+  # aws_route53_record.vpn["www.vpn.estenssoros.com"] will be destroyed
+  - resource "aws_route53_record" "vpn" {
+      - allow_overwrite                  = true -> null
+      - fqdn                             = "_381f3bac98e2e6b37f8d6616617285b1.www.vpn.estenssoros.com" -> null
+      - id                               = "Z16UZ8Y7MVL91W__381f3bac98e2e6b37f8d6616617285b1.www.vpn.estenssoros.com._CNAME" -> null
+      - multivalue_answer_routing_policy = false -> null
+      - name                             = "_381f3bac98e2e6b37f8d6616617285b1.www.vpn.estenssoros.com" -> null
+      - records                          = [
+          - "_caac1a20144248da0d80310f0e2b9863.vgvxdprndh.acm-validations.aws.",
+        ] -> null
+      - ttl                              = 60 -> null
+      - type                             = "CNAME" -> null
+      - zone_id                          = "Z16UZ8Y7MVL91W" -> null
+    }
+
+  # aws_security_group.vpn_access will be destroyed
+  - resource "aws_security_group" "vpn_access" {
+      - arn                    = "arn:aws:ec2:us-east-2:001928331621:security-group/sg-054d44d01727b23df" -> null
+      - description            = "Managed by Terraform" -> null
+      - egress                 = [
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = ""
+              - from_port        = 0
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "-1"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 0
+            },
+        ] -> null
+      - id                     = "sg-054d44d01727b23df" -> null
+      - ingress                = [
+          - {
+              - cidr_blocks      = [
+                  - "0.0.0.0/0",
+                ]
+              - description      = ""
+              - from_port        = 443
+              - ipv6_cidr_blocks = []
+              - prefix_list_ids  = []
+              - protocol         = "udp"
+              - security_groups  = []
+              - self             = false
+              - to_port          = 443
+            },
+        ] -> null
+      - name                   = "vpn-sg" -> null
+      - owner_id               = "001928331621" -> null
+      - revoke_rules_on_delete = false -> null
+      - tags                   = {} -> null
+      - tags_all               = {} -> null
+      - vpc_id                 = "vpc-02d7b3b9e6e1353c9" -> null
+    }
+
+  # module.networking.aws_eip.nat[0] will be destroyed
+  - resource "aws_eip" "nat" {
+      - allocation_id        = "eipalloc-0cf1f073406cfcfb3" -> null
+      - association_id       = "eipassoc-0e0a11892466455da" -> null
+      - domain               = "vpc" -> null
+      - id                   = "eipalloc-0cf1f073406cfcfb3" -> null
+      - network_border_group = "us-east-2" -> null
+      - network_interface    = "eni-004e74f2b27b1a7d8" -> null
+      - private_dns          = "ip-10-0-0-90.us-east-2.compute.internal" -> null
+      - private_ip           = "10.0.0.90" -> null
+      - public_dns           = "ec2-3-14-186-65.us-east-2.compute.amazonaws.com" -> null
+      - public_ip            = "3.14.186.65" -> null
+      - public_ipv4_pool     = "amazon" -> null
+      - tags                 = {
+          - "Name" = "vpn-eip"
+        } -> null
+      - tags_all             = {
+          - "Name" = "vpn-eip"
+        } -> null
+      - vpc                  = true -> null
+    }
+
+  # module.networking.aws_eip.nat[1] will be destroyed
+  - resource "aws_eip" "nat" {
+      - allocation_id        = "eipalloc-0a15ce86b6a88f0b0" -> null
+      - association_id       = "eipassoc-0f08e6a3928c2ffe8" -> null
+      - domain               = "vpc" -> null
+      - id                   = "eipalloc-0a15ce86b6a88f0b0" -> null
+      - network_border_group = "us-east-2" -> null
+      - network_interface    = "eni-03063802f53b60c3f" -> null
+      - private_dns          = "ip-10-0-1-235.us-east-2.compute.internal" -> null
+      - private_ip           = "10.0.1.235" -> null
+      - public_dns           = "ec2-3-134-194-218.us-east-2.compute.amazonaws.com" -> null
+      - public_ip            = "3.134.194.218" -> null
+      - public_ipv4_pool     = "amazon" -> null
+      - tags                 = {
+          - "Name" = "vpn-eip"
+        } -> null
+      - tags_all             = {
+          - "Name" = "vpn-eip"
+        } -> null
+      - vpc                  = true -> null
+    }
+
+  # module.networking.aws_internet_gateway.igw will be destroyed
+  - resource "aws_internet_gateway" "igw" {
+      - arn      = "arn:aws:ec2:us-east-2:001928331621:internet-gateway/igw-0da7fe9233ed7bf4f" -> null
+      - id       = "igw-0da7fe9233ed7bf4f" -> null
+      - owner_id = "001928331621" -> null
+      - tags     = {
+          - "Name" = "vpn-igw"
+        } -> null
+      - tags_all = {
+          - "Name" = "vpn-igw"
+        } -> null
+      - vpc_id   = "vpc-02d7b3b9e6e1353c9" -> null
+    }
+
+  # module.networking.aws_nat_gateway.ngw[0] will be destroyed
+  - resource "aws_nat_gateway" "ngw" {
+      - allocation_id                      = "eipalloc-0cf1f073406cfcfb3" -> null
+      - association_id                     = "eipassoc-0e0a11892466455da" -> null
+      - connectivity_type                  = "public" -> null
+      - id                                 = "nat-082e37179c2752e22" -> null
+      - network_interface_id               = "eni-004e74f2b27b1a7d8" -> null
+      - private_ip                         = "10.0.0.90" -> null
+      - public_ip                          = "3.14.186.65" -> null
+      - secondary_allocation_ids           = [] -> null
+      - secondary_private_ip_address_count = 0 -> null
+      - secondary_private_ip_addresses     = [] -> null
+      - subnet_id                          = "subnet-046a47118b6e9b130" -> null
+      - tags                               = {
+          - "Name" = "vpn-nat-gateway"
+        } -> null
+      - tags_all                           = {
+          - "Name" = "vpn-nat-gateway"
+        } -> null
+    }
+
+  # module.networking.aws_nat_gateway.ngw[1] will be destroyed
+  - resource "aws_nat_gateway" "ngw" {
+      - allocation_id                      = "eipalloc-0a15ce86b6a88f0b0" -> null
+      - association_id                     = "eipassoc-0f08e6a3928c2ffe8" -> null
+      - connectivity_type                  = "public" -> null
+      - id                                 = "nat-0d279355e1008ae17" -> null
+      - network_interface_id               = "eni-03063802f53b60c3f" -> null
+      - private_ip                         = "10.0.1.235" -> null
+      - public_ip                          = "3.134.194.218" -> null
+      - secondary_allocation_ids           = [] -> null
+      - secondary_private_ip_address_count = 0 -> null
+      - secondary_private_ip_addresses     = [] -> null
+      - subnet_id                          = "subnet-04a7d641d5c5e003c" -> null
+      - tags                               = {
+          - "Name" = "vpn-nat-gateway"
+        } -> null
+      - tags_all                           = {
+          - "Name" = "vpn-nat-gateway"
+        } -> null
+    }
+
+  # module.networking.aws_route.nat[0] will be destroyed
+  - resource "aws_route" "nat" {
+      - destination_cidr_block = "0.0.0.0/0" -> null
+      - id                     = "r-rtb-0ef06b9b89bbe66cd1080289494" -> null
+      - nat_gateway_id         = "nat-082e37179c2752e22" -> null
+      - origin                 = "CreateRoute" -> null
+      - route_table_id         = "rtb-0ef06b9b89bbe66cd" -> null
+      - state                  = "active" -> null
+    }
+
+  # module.networking.aws_route.nat[1] will be destroyed
+  - resource "aws_route" "nat" {
+      - destination_cidr_block = "0.0.0.0/0" -> null
+      - id                     = "r-rtb-0fee3e05f6c1218191080289494" -> null
+      - nat_gateway_id         = "nat-0d279355e1008ae17" -> null
+      - origin                 = "CreateRoute" -> null
+      - route_table_id         = "rtb-0fee3e05f6c121819" -> null
+      - state                  = "active" -> null
+    }
+
+  # module.networking.aws_route.public will be destroyed
+  - resource "aws_route" "public" {
+      - destination_cidr_block = "0.0.0.0/0" -> null
+      - gateway_id             = "igw-0da7fe9233ed7bf4f" -> null
+      - id                     = "r-rtb-0011905a8051db1431080289494" -> null
+      - origin                 = "CreateRoute" -> null
+      - route_table_id         = "rtb-0011905a8051db143" -> null
+      - state                  = "active" -> null
+    }
+
+  # module.networking.aws_route_table.private[0] will be destroyed
+  - resource "aws_route_table" "private" {
+      - arn              = "arn:aws:ec2:us-east-2:001928331621:route-table/rtb-0ef06b9b89bbe66cd" -> null
+      - id               = "rtb-0ef06b9b89bbe66cd" -> null
+      - owner_id         = "001928331621" -> null
+      - propagating_vgws = [] -> null
+      - route            = [
+          - {
+              - carrier_gateway_id         = ""
+              - cidr_block                 = "0.0.0.0/0"
+              - core_network_arn           = ""
+              - destination_prefix_list_id = ""
+              - egress_only_gateway_id     = ""
+              - gateway_id                 = ""
+              - ipv6_cidr_block            = ""
+              - local_gateway_id           = ""
+              - nat_gateway_id             = "nat-082e37179c2752e22"
+              - network_interface_id       = ""
+              - transit_gateway_id         = ""
+              - vpc_endpoint_id            = ""
+              - vpc_peering_connection_id  = ""
+            },
+        ] -> null
+      - tags             = {
+          - "Name" = "vpn-rt-public"
+        } -> null
+      - tags_all         = {
+          - "Name" = "vpn-rt-public"
+        } -> null
+      - vpc_id           = "vpc-02d7b3b9e6e1353c9" -> null
+    }
+
+  # module.networking.aws_route_table.private[1] will be destroyed
+  - resource "aws_route_table" "private" {
+      - arn              = "arn:aws:ec2:us-east-2:001928331621:route-table/rtb-0fee3e05f6c121819" -> null
+      - id               = "rtb-0fee3e05f6c121819" -> null
+      - owner_id         = "001928331621" -> null
+      - propagating_vgws = [] -> null
+      - route            = [
+          - {
+              - carrier_gateway_id         = ""
+              - cidr_block                 = "0.0.0.0/0"
+              - core_network_arn           = ""
+              - destination_prefix_list_id = ""
+              - egress_only_gateway_id     = ""
+              - gateway_id                 = ""
+              - ipv6_cidr_block            = ""
+              - local_gateway_id           = ""
+              - nat_gateway_id             = "nat-0d279355e1008ae17"
+              - network_interface_id       = ""
+              - transit_gateway_id         = ""
+              - vpc_endpoint_id            = ""
+              - vpc_peering_connection_id  = ""
+            },
+        ] -> null
+      - tags             = {
+          - "Name" = "vpn-rt-public"
+        } -> null
+      - tags_all         = {
+          - "Name" = "vpn-rt-public"
+        } -> null
+      - vpc_id           = "vpc-02d7b3b9e6e1353c9" -> null
+    }
+
+  # module.networking.aws_route_table.public will be destroyed
+  - resource "aws_route_table" "public" {
+      - arn              = "arn:aws:ec2:us-east-2:001928331621:route-table/rtb-0011905a8051db143" -> null
+      - id               = "rtb-0011905a8051db143" -> null
+      - owner_id         = "001928331621" -> null
+      - propagating_vgws = [] -> null
+      - route            = [
+          - {
+              - carrier_gateway_id         = ""
+              - cidr_block                 = "0.0.0.0/0"
+              - core_network_arn           = ""
+              - destination_prefix_list_id = ""
+              - egress_only_gateway_id     = ""
+              - gateway_id                 = "igw-0da7fe9233ed7bf4f"
+              - ipv6_cidr_block            = ""
+              - local_gateway_id           = ""
+              - nat_gateway_id             = ""
+              - network_interface_id       = ""
+              - transit_gateway_id         = ""
+              - vpc_endpoint_id            = ""
+              - vpc_peering_connection_id  = ""
+            },
+        ] -> null
+      - tags             = {
+          - "Name" = "vpn-rt-public"
+        } -> null
+      - tags_all         = {
+          - "Name" = "vpn-rt-public"
+        } -> null
+      - vpc_id           = "vpc-02d7b3b9e6e1353c9" -> null
+    }
+
+  # module.networking.aws_route_table_association.private[0] will be destroyed
+  - resource "aws_route_table_association" "private" {
+      - id             = "rtbassoc-0b2c5bdb977d8809d" -> null
+      - route_table_id = "rtb-0ef06b9b89bbe66cd" -> null
+      - subnet_id      = "subnet-0d6add77cd343f548" -> null
+    }
+
+  # module.networking.aws_route_table_association.private[1] will be destroyed
+  - resource "aws_route_table_association" "private" {
+      - id             = "rtbassoc-07e07f5c99f05b2e7" -> null
+      - route_table_id = "rtb-0fee3e05f6c121819" -> null
+      - subnet_id      = "subnet-0509a3fc8df579b2d" -> null
+    }
+
+  # module.networking.aws_route_table_association.public[0] will be destroyed
+  - resource "aws_route_table_association" "public" {
+      - id             = "rtbassoc-06d067fcf0a984a56" -> null
+      - route_table_id = "rtb-0011905a8051db143" -> null
+      - subnet_id      = "subnet-046a47118b6e9b130" -> null
+    }
+
+  # module.networking.aws_route_table_association.public[1] will be destroyed
+  - resource "aws_route_table_association" "public" {
+      - id             = "rtbassoc-0190e0a41c10e0c75" -> null
+      - route_table_id = "rtb-0011905a8051db143" -> null
+      - subnet_id      = "subnet-04a7d641d5c5e003c" -> null
+    }
+
+  # module.networking.aws_subnet.private[0] will be destroyed
+  - resource "aws_subnet" "private" {
+      - arn                                            = "arn:aws:ec2:us-east-2:001928331621:subnet/subnet-0d6add77cd343f548" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "us-east-2a" -> null
+      - availability_zone_id                           = "use2-az1" -> null
+      - cidr_block                                     = "10.0.2.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_lni_at_device_index                     = 0 -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-0d6add77cd343f548" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = false -> null
+      - owner_id                                       = "001928331621" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - tags                                           = {
+          - "Name" = "vpn-subnet-private-0"
+        } -> null
+      - tags_all                                       = {
+          - "Name" = "vpn-subnet-private-0"
+        } -> null
+      - vpc_id                                         = "vpc-02d7b3b9e6e1353c9" -> null
+    }
+
+  # module.networking.aws_subnet.private[1] will be destroyed
+  - resource "aws_subnet" "private" {
+      - arn                                            = "arn:aws:ec2:us-east-2:001928331621:subnet/subnet-0509a3fc8df579b2d" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "us-east-2b" -> null
+      - availability_zone_id                           = "use2-az2" -> null
+      - cidr_block                                     = "10.0.3.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_lni_at_device_index                     = 0 -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-0509a3fc8df579b2d" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = false -> null
+      - owner_id                                       = "001928331621" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - tags                                           = {
+          - "Name" = "vpn-subnet-private-1"
+        } -> null
+      - tags_all                                       = {
+          - "Name" = "vpn-subnet-private-1"
+        } -> null
+      - vpc_id                                         = "vpc-02d7b3b9e6e1353c9" -> null
+    }
+
+  # module.networking.aws_subnet.public[0] will be destroyed
+  - resource "aws_subnet" "public" {
+      - arn                                            = "arn:aws:ec2:us-east-2:001928331621:subnet/subnet-046a47118b6e9b130" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "us-east-2a" -> null
+      - availability_zone_id                           = "use2-az1" -> null
+      - cidr_block                                     = "10.0.0.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_lni_at_device_index                     = 0 -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-046a47118b6e9b130" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = false -> null
+      - owner_id                                       = "001928331621" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - tags                                           = {
+          - "Name" = "vpn-subnet-public-0"
+        } -> null
+      - tags_all                                       = {
+          - "Name" = "vpn-subnet-public-0"
+        } -> null
+      - vpc_id                                         = "vpc-02d7b3b9e6e1353c9" -> null
+    }
+
+  # module.networking.aws_subnet.public[1] will be destroyed
+  - resource "aws_subnet" "public" {
+      - arn                                            = "arn:aws:ec2:us-east-2:001928331621:subnet/subnet-04a7d641d5c5e003c" -> null
+      - assign_ipv6_address_on_creation                = false -> null
+      - availability_zone                              = "us-east-2b" -> null
+      - availability_zone_id                           = "use2-az2" -> null
+      - cidr_block                                     = "10.0.1.0/24" -> null
+      - enable_dns64                                   = false -> null
+      - enable_lni_at_device_index                     = 0 -> null
+      - enable_resource_name_dns_a_record_on_launch    = false -> null
+      - enable_resource_name_dns_aaaa_record_on_launch = false -> null
+      - id                                             = "subnet-04a7d641d5c5e003c" -> null
+      - ipv6_native                                    = false -> null
+      - map_customer_owned_ip_on_launch                = false -> null
+      - map_public_ip_on_launch                        = false -> null
+      - owner_id                                       = "001928331621" -> null
+      - private_dns_hostname_type_on_launch            = "ip-name" -> null
+      - tags                                           = {
+          - "Name" = "vpn-subnet-public-1"
+        } -> null
+      - tags_all                                       = {
+          - "Name" = "vpn-subnet-public-1"
+        } -> null
+      - vpc_id                                         = "vpc-02d7b3b9e6e1353c9" -> null
+    }
+
+  # module.networking.aws_vpc.main will be destroyed
+  - resource "aws_vpc" "main" {
+      - arn                                  = "arn:aws:ec2:us-east-2:001928331621:vpc/vpc-02d7b3b9e6e1353c9" -> null
+      - assign_generated_ipv6_cidr_block     = false -> null
+      - cidr_block                           = "10.0.0.0/16" -> null
+      - default_network_acl_id               = "acl-006476958cc5aca86" -> null
+      - default_route_table_id               = "rtb-0bea91d7e9cb36f65" -> null
+      - default_security_group_id            = "sg-02c42030dac71d5df" -> null
+      - dhcp_options_id                      = "dopt-be7d82d7" -> null
+      - enable_dns_hostnames                 = true -> null
+      - enable_dns_support                   = true -> null
+      - enable_network_address_usage_metrics = false -> null
+      - id                                   = "vpc-02d7b3b9e6e1353c9" -> null
+      - instance_tenancy                     = "default" -> null
+      - ipv6_netmask_length                  = 0 -> null
+      - main_route_table_id                  = "rtb-0bea91d7e9cb36f65" -> null
+      - owner_id                             = "001928331621" -> null
+      - tags                                 = {
+          - "Name" = "vpn-vpc"
+        } -> null
+      - tags_all                             = {
+          - "Name" = "vpn-vpc"
+        } -> null
+    }
+
+Plan: 0 to add, 0 to change, 29 to destroy.
+
+Changes to Outputs:
+  - region       = "us-east-2" -> null
+  - vpn_endpoint = "cvpn-endpoint-07dcae05ef03a8c56" -> null
+aws_ec2_client_vpn_network_association.vpn[1]: Destroying... [id=cvpn-assoc-02fcf609bf31119e3]
+aws_ec2_client_vpn_authorization_rule.vpn: Destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16]
+module.networking.aws_route_table_association.public[0]: Destroying... [id=rtbassoc-06d067fcf0a984a56]
+aws_ec2_client_vpn_network_association.vpn[0]: Destroying... [id=cvpn-assoc-050ec484a518ea47d]
+module.networking.aws_route_table_association.private[1]: Destroying... [id=rtbassoc-07e07f5c99f05b2e7]
+module.networking.aws_route.nat[1]: Destroying... [id=r-rtb-0fee3e05f6c1218191080289494]
+aws_acm_certificate_validation.vpn: Destroying... [id=2023-10-03 13:21:08.014 +0000 UTC]
+module.networking.aws_route_table_association.private[0]: Destroying... [id=rtbassoc-0b2c5bdb977d8809d]
+module.networking.aws_route_table_association.public[1]: Destroying... [id=rtbassoc-0190e0a41c10e0c75]
+module.networking.aws_route.nat[0]: Destroying... [id=r-rtb-0ef06b9b89bbe66cd1080289494]
+aws_acm_certificate_validation.vpn: Destruction complete after 0s
+module.networking.aws_route.public: Destroying... [id=r-rtb-0011905a8051db1431080289494]
+module.networking.aws_route_table_association.private[1]: Destruction complete after 2s
+module.networking.aws_route_table_association.public[1]: Destruction complete after 2s
+aws_route53_record.vpn["www.vpn.estenssoros.com"]: Destroying... [id=Z16UZ8Y7MVL91W__381f3bac98e2e6b37f8d6616617285b1.www.vpn.estenssoros.com._CNAME]
+aws_route53_record.vpn["vpn.estenssoros.com"]: Destroying... [id=Z16UZ8Y7MVL91W__e0e010a634d8f5d9b2560163eedc0ed5.vpn.estenssoros.com._CNAME]
+module.networking.aws_route_table_association.public[0]: Destruction complete after 2s
+module.networking.aws_route_table_association.private[0]: Destruction complete after 2s
+module.networking.aws_route.public: Destruction complete after 2s
+module.networking.aws_internet_gateway.igw: Destroying... [id=igw-0da7fe9233ed7bf4f]
+module.networking.aws_route_table.public: Destroying... [id=rtb-0011905a8051db143]
+module.networking.aws_route.nat[0]: Destruction complete after 2s
+module.networking.aws_route.nat[1]: Destruction complete after 2s
+module.networking.aws_nat_gateway.ngw[1]: Destroying... [id=nat-0d279355e1008ae17]
+module.networking.aws_nat_gateway.ngw[0]: Destroying... [id=nat-082e37179c2752e22]
+module.networking.aws_route_table.private[0]: Destroying... [id=rtb-0ef06b9b89bbe66cd]
+module.networking.aws_route_table.public: Destruction complete after 1s
+module.networking.aws_route_table.private[1]: Destroying... [id=rtb-0fee3e05f6c121819]
+module.networking.aws_route_table.private[0]: Destruction complete after 1s
+module.networking.aws_route_table.private[1]: Destruction complete after 1s
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 10s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 10s elapsed]
+aws_route53_record.vpn["vpn.estenssoros.com"]: Still destroying... [id=Z16UZ8Y7MVL91W__e0e010a634d8f5d9b2560163eedc0ed5.vpn.estenssoros.com._CNAME, 10s elapsed]
+aws_route53_record.vpn["www.vpn.estenssoros.com"]: Still destroying... [id=Z16UZ8Y7MVL91W__381f3bac98e2e6b37f8d6616617285b1.www.vpn.estenssoros.com._CNAME, 10s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 10s elapsed]
+module.networking.aws_nat_gateway.ngw[1]: Still destroying... [id=nat-0d279355e1008ae17, 10s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Still destroying... [id=nat-082e37179c2752e22, 10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 20s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 20s elapsed]
+aws_route53_record.vpn["www.vpn.estenssoros.com"]: Still destroying... [id=Z16UZ8Y7MVL91W__381f3bac98e2e6b37f8d6616617285b1.www.vpn.estenssoros.com._CNAME, 20s elapsed]
+aws_route53_record.vpn["vpn.estenssoros.com"]: Still destroying... [id=Z16UZ8Y7MVL91W__e0e010a634d8f5d9b2560163eedc0ed5.vpn.estenssoros.com._CNAME, 20s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 20s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Still destroying... [id=nat-082e37179c2752e22, 20s elapsed]
+module.networking.aws_nat_gateway.ngw[1]: Still destroying... [id=nat-0d279355e1008ae17, 20s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 30s elapsed]
+aws_route53_record.vpn["vpn.estenssoros.com"]: Still destroying... [id=Z16UZ8Y7MVL91W__e0e010a634d8f5d9b2560163eedc0ed5.vpn.estenssoros.com._CNAME, 30s elapsed]
+aws_route53_record.vpn["www.vpn.estenssoros.com"]: Still destroying... [id=Z16UZ8Y7MVL91W__381f3bac98e2e6b37f8d6616617285b1.www.vpn.estenssoros.com._CNAME, 30s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 30s elapsed]
+module.networking.aws_nat_gateway.ngw[1]: Still destroying... [id=nat-0d279355e1008ae17, 30s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Still destroying... [id=nat-082e37179c2752e22, 30s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 40s elapsed]
+aws_route53_record.vpn["vpn.estenssoros.com"]: Destruction complete after 38s
+aws_route53_record.vpn["www.vpn.estenssoros.com"]: Destruction complete after 39s
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 40s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Still destroying... [id=nat-082e37179c2752e22, 40s elapsed]
+module.networking.aws_nat_gateway.ngw[1]: Still destroying... [id=nat-0d279355e1008ae17, 40s elapsed]
+module.networking.aws_nat_gateway.ngw[1]: Destruction complete after 42s
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 50s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 50s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Still destroying... [id=nat-082e37179c2752e22, 50s elapsed]
+module.networking.aws_nat_gateway.ngw[0]: Destruction complete after 53s
+module.networking.aws_eip.nat[0]: Destroying... [id=eipalloc-0cf1f073406cfcfb3]
+module.networking.aws_eip.nat[1]: Destroying... [id=eipalloc-0a15ce86b6a88f0b0]
+module.networking.aws_eip.nat[1]: Destruction complete after 2s
+module.networking.aws_eip.nat[0]: Destruction complete after 2s
+module.networking.aws_subnet.public[0]: Destroying... [id=subnet-046a47118b6e9b130]
+module.networking.aws_subnet.public[1]: Destroying... [id=subnet-04a7d641d5c5e003c]
+module.networking.aws_subnet.public[1]: Destruction complete after 1s
+module.networking.aws_subnet.public[0]: Destruction complete after 1s
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 1m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 1m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 1m0s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 1m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 1m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 1m10s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 1m10s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 1m10s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 1m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 1m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 1m20s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 1m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 1m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 1m30s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 1m30s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 1m30s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 1m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 1m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 1m40s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 1m40s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 1m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 1m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 1m50s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 1m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 2m0s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 2m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 2m0s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 2m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 2m10s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 2m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 2m10s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 2m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 2m20s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 2m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 2m20s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 2m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 2m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 2m30s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 2m30s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 2m30s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 2m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 2m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 2m40s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 2m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 2m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 2m50s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 2m50s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 2m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 3m0s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 3m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 3m0s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 3m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 3m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 3m10s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 3m10s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 3m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 3m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 3m20s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 3m20s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 3m20s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 3m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 3m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 3m30s elapsed]
+module.networking.aws_internet_gateway.igw: Still destroying... [id=igw-0da7fe9233ed7bf4f, 3m30s elapsed]
+module.networking.aws_internet_gateway.igw: Destruction complete after 3m33s
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 3m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 3m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 3m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 3m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 3m50s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 3m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 4m0s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 4m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 4m0s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 4m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 4m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 4m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 4m20s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 4m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 4m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 4m30s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 4m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 4m30s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 4m40s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 4m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 4m40s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 4m50s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 4m50s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 4m50s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 5m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 5m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 5m0s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 5m10s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 5m10s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 5m10s elapsed]
+aws_ec2_client_vpn_authorization_rule.vpn: Still destroying... [id=cvpn-endpoint-07dcae05ef03a8c56,10.0.0.0/16, 5m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[0]: Still destroying... [id=cvpn-assoc-050ec484a518ea47d, 5m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Still destroying... [id=cvpn-assoc-02fcf609bf31119e3, 5m20s elapsed]
+aws_ec2_client_vpn_network_association.vpn[1]: Destruction complete after 5m24s
+aws_ec2_client_vpn_network_association.vpn[0]: Destruction complete after 5m24s
+module.networking.aws_subnet.private[0]: Destroying... [id=subnet-0d6add77cd343f548]
+module.networking.aws_subnet.private[1]: Destroying... [id=subnet-0509a3fc8df579b2d]
+module.networking.aws_subnet.private[1]: Destruction complete after 1s
+module.networking.aws_subnet.private[0]: Destruction complete after 1s
+aws_ec2_client_vpn_authorization_rule.vpn: Destruction complete after 5m28s
+aws_ec2_client_vpn_endpoint.vpn: Destroying... [id=cvpn-endpoint-07dcae05ef03a8c56]
+aws_ec2_client_vpn_endpoint.vpn: Destruction complete after 1s
+aws_acm_certificate.cert: Destroying... [id=arn:aws:acm:us-east-2:001928331621:certificate/ebc9bff6-3a55-40c5-9a7a-5f3964786efb]
+aws_security_group.vpn_access: Destroying... [id=sg-054d44d01727b23df]
+aws_acm_certificate.cert: Destruction complete after 1s
+aws_security_group.vpn_access: Destruction complete after 2s
+module.networking.aws_vpc.main: Destroying... [id=vpc-02d7b3b9e6e1353c9]
+module.networking.aws_vpc.main: Destruction complete after 1s
+
+Destroy complete! Resources: 29 destroyed.

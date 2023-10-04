@@ -1,0 +1,1248 @@
+
+Initializing the backend...
+Upgrading modules...
+- blob in ../modules/blob
+- database in ../modules/database
+- ebs in ../modules/ebs
+- ebs.certificate in ../modules/certificates
+- networking in ../modules/networking
+- website in ../modules/website
+- website.certificates in ../modules/certificates
+
+Initializing provider plugins...
+- Finding latest version of hashicorp/local...
+- Finding latest version of hashicorp/http...
+- Finding hashicorp/aws versions matching "~> 5.0"...
+- Finding latest version of hashicorp/random...
+- Finding latest version of hashicorp/template...
+- Using previously-installed hashicorp/template v2.2.0
+- Using previously-installed hashicorp/local v2.4.0
+- Using previously-installed hashicorp/http v3.4.0
+- Using previously-installed hashicorp/aws v5.19.0
+- Using previously-installed hashicorp/random v3.5.1
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+module.blob.random_pet.bucket_name: Refreshing state... [id=inviting-guinea]
+module.database.random_uuid.database_password: Refreshing state... [id=a32d325a-d5bd-0496-9de6-bb08476c2bdc]
+random_pet.secret_name: Refreshing state... [id=thorough-impala]
+module.ebs.random_pet.ebs_bucket_name: Refreshing state... [id=engaging-tuna]
+module.networking.random_id.db_subnet_name: Refreshing state... [id=HblKx4yyTdc]
+module.ebs.data.http.myip: Reading...
+module.ebs.data.http.myip: Read complete after 0s [id=http://ipv4.icanhazip.com]
+module.website.module.certificates.data.aws_route53_zone.website: Reading...
+module.website.module.certificates.aws_acm_certificate.website: Refreshing state... [id=arn:aws:acm:us-east-1:001928331621:certificate/e4a612b6-24d1-4e88-8f90-7adb2a396cb0]
+aws_ecr_repository.app: Refreshing state... [id=stem-stickers-test]
+module.ebs.data.aws_route53_zone.hosted_zone: Reading...
+module.ebs.aws_elastic_beanstalk_application.app: Refreshing state... [id=stem-stickers-test]
+module.ebs.aws_iam_role.ebs: Refreshing state... [id=stem-stickers-test-ebs]
+module.networking.aws_eip.nat[1]: Refreshing state... [id=eipalloc-0a767a67fbc86f2a9]
+module.networking.aws_eip.nat[0]: Refreshing state... [id=eipalloc-0e5ff8b663c85ffbc]
+module.website.aws_s3_bucket.www_bucket: Refreshing state... [id=www.test.stem-stickers.com]
+module.website.data.aws_route53_zone.app_zone: Reading...
+module.networking.aws_vpc.aws_vpc: Refreshing state... [id=vpc-0a6c39ce9d81e59ce]
+module.blob.aws_s3_bucket.blob_bucket: Refreshing state... [id=stem-stickers-inviting-guinea]
+module.website.module.certificates.data.aws_route53_zone.website: Read complete after 1s [id=Z0883084KHFGKGL2BH60]
+aws_secretsmanager_secret.config: Refreshing state... [id=arn:aws:secretsmanager:us-west-2:001928331621:secret:stem-stickers-config-thorough-impala-fanQE4]
+module.website.aws_s3_bucket.root_bucket: Refreshing state... [id=test.stem-stickers.com]
+module.ebs.aws_s3_bucket.ebs: Refreshing state... [id=stem-stickers-test-engaging-tuna]
+module.ebs.module.certificate.aws_acm_certificate.website: Refreshing state... [id=arn:aws:acm:us-west-2:001928331621:certificate/26269db4-dfd8-45ad-a607-377d0ed4d1b9]
+module.ebs.data.aws_route53_zone.hosted_zone: Read complete after 2s [id=Z0883084KHFGKGL2BH60]
+module.ebs.module.certificate.data.aws_route53_zone.website: Reading...
+module.ebs.aws_iam_instance_profile.beanstalk_iam_instance_profile: Refreshing state... [id=stem-stickers-test-beanstalk-iam-instance-profile]
+module.website.data.aws_route53_zone.app_zone: Read complete after 1s [id=Z0883084KHFGKGL2BH60]
+module.ebs.aws_iam_role_policy_attachment.multicontainre_docker: Refreshing state... [id=stem-stickers-test-ebs-20230917192824228600000002]
+module.ebs.aws_iam_role_policy_attachment.web_tier: Refreshing state... [id=stem-stickers-test-ebs-20230917192824237000000003]
+module.ebs.aws_iam_role_policy_attachment.worker_tier: Refreshing state... [id=stem-stickers-test-ebs-20230917192824182700000001]
+module.website.module.certificates.aws_route53_record.website["www.test.stem-stickers.com"]: Refreshing state... [id=Z0883084KHFGKGL2BH60__3d276fd483ef2e4285b907c6c0b5bbbb.www.test.stem-stickers.com._CNAME]
+module.website.module.certificates.aws_route53_record.website["test.stem-stickers.com"]: Refreshing state... [id=Z0883084KHFGKGL2BH60__df6d21e87d121cdad0f539c7ddda4270.test.stem-stickers.com._CNAME]
+module.ebs.aws_iam_policy.ecr: Refreshing state... [id=arn:aws:iam::001928331621:policy/stem-stickers-test-ECRFullAccessPolicy]
+module.ebs.data.template_file.ebs_config: Reading...
+module.ebs.data.template_file.ebs_config: Read complete after 0s [id=e386acbc2147b791ac2b44480ed4505f17630d628a1fb7d7a2d82fd102e2d9bd]
+module.ebs.aws_iam_policy.config_secret: Refreshing state... [id=arn:aws:iam::001928331621:policy/stem-stickers-test-ConfigSecretReader]
+module.ebs.module.certificate.data.aws_route53_zone.website: Read complete after 1s [id=Z0883084KHFGKGL2BH60]
+module.ebs.local_file.ebs_config: Refreshing state... [id=deef83c3a50ad0c9d4a0734b3aed8d509815f9c5]
+module.ebs.module.certificate.aws_route53_record.website["api-test.stem-stickers.com"]: Refreshing state... [id=Z0883084KHFGKGL2BH60__9ec1ac6b91fe0c1c20c082bf4e93541f.api-test.stem-stickers.com._CNAME]
+module.ebs.module.certificate.aws_route53_record.website["www.api-test.stem-stickers.com"]: Refreshing state... [id=Z0883084KHFGKGL2BH60__efef4e20a33a6ebb66f8459d24a96286.www.api-test.stem-stickers.com._CNAME]
+module.ebs.aws_iam_role_policy_attachment.ecr: Refreshing state... [id=stem-stickers-test-ebs-20230917192824568300000007]
+module.ebs.aws_iam_role_policy_attachment.secret: Refreshing state... [id=stem-stickers-test-ebs-20230917192824362700000004]
+module.website.module.certificates.aws_acm_certificate_validation.website: Refreshing state... [id=2023-09-10 21:41:48.372 +0000 UTC]
+module.networking.aws_route_table.public: Refreshing state... [id=rtb-082e14d56280ea473]
+module.networking.aws_internet_gateway.aws_igw[0]: Refreshing state... [id=igw-0d8e9815bd03653a0]
+module.networking.aws_route_table.private[1]: Refreshing state... [id=rtb-055b48d9156599773]
+module.networking.aws_route_table.private[0]: Refreshing state... [id=rtb-065ade74dd61470a6]
+module.networking.aws_subnet.private[0]: Refreshing state... [id=subnet-07ab235b334cf7aa4]
+module.networking.aws_subnet.private[1]: Refreshing state... [id=subnet-083f6352ebd26be66]
+module.networking.aws_subnet.public[0]: Refreshing state... [id=subnet-0712e298c914976ef]
+module.networking.aws_subnet.public[1]: Refreshing state... [id=subnet-00352252ffa99aa35]
+aws_security_group.database: Refreshing state... [id=sg-0d0b93cae62383f04]
+module.ebs.module.certificate.aws_acm_certificate_validation.website: Refreshing state... [id=2023-09-20 11:54:17.828 +0000 UTC]
+module.networking.aws_route.public[0]: Refreshing state... [id=r-rtb-082e14d56280ea4731080289494]
+module.networking.aws_db_subnet_group.db_subnet_group: Refreshing state... [id=db-subnet-group-1db94ac78cb24dd7]
+module.networking.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-033357fb582a5e4f0]
+module.networking.aws_route_table_association.private[1]: Refreshing state... [id=rtbassoc-0fd352ac604998a41]
+module.networking.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-0d6b45e201e5bd62d]
+module.networking.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-0167c324739eaaf4f]
+module.networking.aws_nat_gateway.main[0]: Refreshing state... [id=nat-0a695eaa794182010]
+module.networking.aws_nat_gateway.main[1]: Refreshing state... [id=nat-012df6c3d2924f53a]
+module.ebs.aws_security_group.ebs: Refreshing state... [id=sg-0cd9b7bf49848c901]
+module.networking.aws_route.private[0]: Refreshing state... [id=r-rtb-065ade74dd61470a61080289494]
+module.networking.aws_route.private[1]: Refreshing state... [id=r-rtb-055b48d91565997731080289494]
+module.database.aws_rds_cluster.app_rds_cluster: Refreshing state... [id=stem-stickers-test-cluster]
+module.website.aws_s3_bucket_public_access_block.root_bucket: Refreshing state... [id=test.stem-stickers.com]
+module.website.aws_s3_bucket_policy.root_bucket: Refreshing state... [id=test.stem-stickers.com]
+module.website.aws_s3_bucket_ownership_controls.root_bucket: Refreshing state... [id=test.stem-stickers.com]
+module.website.aws_s3_bucket_website_configuration.root_bucket: Refreshing state... [id=test.stem-stickers.com]
+module.website.aws_s3_bucket_policy.www_bucket: Refreshing state... [id=www.test.stem-stickers.com]
+module.website.aws_s3_bucket_public_access_block.www_bucket: Refreshing state... [id=www.test.stem-stickers.com]
+module.website.aws_s3_bucket_ownership_controls.www_bucket: Refreshing state... [id=www.test.stem-stickers.com]
+module.website.aws_s3_bucket_website_configuration.www_bucket: Refreshing state... [id=www.test.stem-stickers.com]
+module.website.aws_s3_bucket_cors_configuration.www_bucket: Refreshing state... [id=www.test.stem-stickers.com]
+module.ebs.aws_iam_policy.database: Refreshing state... [id=arn:aws:iam::001928331621:policy/stem-stickers-test-RDSClusterPolicy]
+module.website.aws_s3_bucket_acl.root_bucket: Refreshing state... [id=test.stem-stickers.com,public-read]
+module.blob.aws_s3_bucket_ownership_controls.blob_bucket: Refreshing state... [id=stem-stickers-inviting-guinea]
+module.blob.aws_s3_bucket_public_access_block.blob_bucket: Refreshing state... [id=stem-stickers-inviting-guinea]
+module.blob.aws_s3_bucket_policy.www_bucket: Refreshing state... [id=stem-stickers-inviting-guinea]
+data.template_file.config: Reading...
+data.template_file.config: Read complete after 0s [id=13d2161bedfcbf7abcb3388eeeec859f550903a08f3aa176b2d6908aff3c7840]
+module.ebs.aws_iam_role_policy_attachment.database: Refreshing state... [id=stem-stickers-test-ebs-20230917192824438000000006]
+module.ebs.aws_s3_object.ebs_deployment: Refreshing state... [id=Dockerrun.aws.json]
+module.ebs.aws_iam_policy.bucket: Refreshing state... [id=arn:aws:iam::001928331621:policy/stem-stickers-test-S3BucketPolicy]
+aws_secretsmanager_secret_version.example: Refreshing state... [id=arn:aws:secretsmanager:us-west-2:001928331621:secret:stem-stickers-config-thorough-impala-fanQE4|DB4019F2-613A-486F-9CF7-B4CC4EAD8D92]
+module.blob.aws_s3_bucket_acl.bucket_acl: Refreshing state... [id=stem-stickers-inviting-guinea,public-read]
+module.website.aws_s3_bucket_acl.www_bucket: Refreshing state... [id=www.test.stem-stickers.com,public-read]
+module.ebs.aws_iam_role_policy_attachment.bucket: Refreshing state... [id=stem-stickers-test-ebs-20230917192824412300000005]
+module.website.aws_cloudfront_distribution.root_s3_distribution: Refreshing state... [id=EYZLLTSNA5HD1]
+module.website.aws_cloudfront_distribution.www_s3_distribution: Refreshing state... [id=E2AQDZPOIHPKLH]
+module.ebs.aws_elastic_beanstalk_application_version.app_version: Refreshing state... [id=stem-stickers-test-version]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Refreshing state... [id=e-23hh2rypiy]
+module.website.aws_route53_record.root-a: Refreshing state... [id=Z0883084KHFGKGL2BH60_test.stem-stickers.com_A]
+module.website.aws_route53_record.www-a: Refreshing state... [id=Z0883084KHFGKGL2BH60_www.test.stem-stickers.com_A]
+module.ebs.aws_route53_record.lb[0]: Refreshing state... [id=Z0883084KHFGKGL2BH60_api-test.stem-stickers.com_CNAME]
+
+Note: Objects have changed outside of Terraform
+
+Terraform detected the following changes made outside of Terraform since the
+last "terraform apply" which may have affected this plan:
+
+  # module.ebs.aws_elastic_beanstalk_application_version.app_version has changed
+  ~ resource "aws_elastic_beanstalk_application_version" "app_version" {
+        id           = "stem-stickers-test-version"
+        name         = "stem-stickers-test-version"
+      + tags         = {}
+        # (6 unchanged attributes hidden)
+    }
+
+
+Unless you have made equivalent changes to your configuration, or ignored the
+relevant attributes using ignore_changes, the following plan may include
+actions to undo or respond to these changes.
+
+─────────────────────────────────────────────────────────────────────────────
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # module.ebs.aws_elastic_beanstalk_environment.env[0] will be destroyed
+  # (because index [0] is out of range for count)
+  - resource "aws_elastic_beanstalk_environment" "env" {
+      - all_settings           = [
+          - {
+              - name      = "AppSource"
+              - namespace = "aws:cloudformation:template:parameter"
+              - resource  = ""
+              - value     = "https://elasticbeanstalk-platform-assets-us-west-2.s3.us-west-2.amazonaws.com/stalks/eb_docker_amazon_linux_2023_1.0.121.0_20230826023544/sampleapp/EBSampleApp-Docker.zip"
+            },
+          - {
+              - name      = "Application Healthcheck URL"
+              - namespace = "aws:elasticbeanstalk:application"
+              - resource  = ""
+              - value     = "TCP:1323"
+            },
+          - {
+              - name      = "AssociatePublicIpAddress"
+              - namespace = "aws:ec2:vpc"
+              - resource  = ""
+              - value     = "false"
+            },
+          - {
+              - name      = "Automatically Terminate Unhealthy Instances"
+              - namespace = "aws:elasticbeanstalk:monitoring"
+              - resource  = ""
+              - value     = "true"
+            },
+          - {
+              - name      = "Availability Zones"
+              - namespace = "aws:autoscaling:asg"
+              - resource  = ""
+              - value     = "Any"
+            },
+          - {
+              - name      = "BatchSize"
+              - namespace = "aws:elasticbeanstalk:command"
+              - resource  = ""
+              - value     = "100"
+            },
+          - {
+              - name      = "BatchSizeType"
+              - namespace = "aws:elasticbeanstalk:command"
+              - resource  = ""
+              - value     = "Percentage"
+            },
+          - {
+              - name      = "BlockDeviceMappings"
+              - namespace = "aws:autoscaling:launchconfiguration"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "BreachDuration"
+              - namespace = "aws:autoscaling:trigger"
+              - resource  = ""
+              - value     = "5"
+            },
+          - {
+              - name      = "ConfigDocument"
+              - namespace = "aws:elasticbeanstalk:healthreporting:system"
+              - resource  = ""
+              - value     = jsonencode(
+                    {
+                      - CloudWatchMetrics = {
+                          - Environment = {
+                              - ApplicationLatencyP10     = null
+                              - ApplicationLatencyP50     = null
+                              - ApplicationLatencyP75     = null
+                              - ApplicationLatencyP85     = null
+                              - ApplicationLatencyP90     = null
+                              - ApplicationLatencyP95     = null
+                              - ApplicationLatencyP99     = null
+                              - "ApplicationLatencyP99.9" = null
+                              - ApplicationRequests2xx    = null
+                              - ApplicationRequests3xx    = null
+                              - ApplicationRequests4xx    = null
+                              - ApplicationRequests5xx    = null
+                              - ApplicationRequestsTotal  = null
+                              - InstancesDegraded         = null
+                              - InstancesInfo             = null
+                              - InstancesNoData           = null
+                              - InstancesOk               = null
+                              - InstancesPending          = null
+                              - InstancesSevere           = null
+                              - InstancesUnknown          = null
+                              - InstancesWarning          = null
+                            }
+                          - Instance    = {
+                              - ApplicationLatencyP10     = null
+                              - ApplicationLatencyP50     = null
+                              - ApplicationLatencyP75     = null
+                              - ApplicationLatencyP85     = null
+                              - ApplicationLatencyP90     = null
+                              - ApplicationLatencyP95     = null
+                              - ApplicationLatencyP99     = null
+                              - "ApplicationLatencyP99.9" = null
+                              - ApplicationRequests2xx    = null
+                              - ApplicationRequests3xx    = null
+                              - ApplicationRequests4xx    = null
+                              - ApplicationRequests5xx    = null
+                              - ApplicationRequestsTotal  = null
+                              - CPUIdle                   = null
+                              - CPUIowait                 = null
+                              - CPUIrq                    = null
+                              - CPUNice                   = null
+                              - CPUSoftirq                = null
+                              - CPUSystem                 = null
+                              - CPUUser                   = null
+                              - InstanceHealth            = null
+                              - LoadAverage1min           = null
+                              - LoadAverage5min           = null
+                              - RootFilesystemUtil        = null
+                            }
+                        }
+                      - Version           = 1
+                    }
+                )
+            },
+          - {
+              - name      = "ConnectionDrainingEnabled"
+              - namespace = "aws:elb:policies"
+              - resource  = ""
+              - value     = "false"
+            },
+          - {
+              - name      = "ConnectionDrainingTimeout"
+              - namespace = "aws:elb:policies"
+              - resource  = ""
+              - value     = "20"
+            },
+          - {
+              - name      = "ConnectionSettingIdleTimeout"
+              - namespace = "aws:elb:policies"
+              - resource  = ""
+              - value     = "60"
+            },
+          - {
+              - name      = "Cooldown"
+              - namespace = "aws:autoscaling:asg"
+              - resource  = ""
+              - value     = "360"
+            },
+          - {
+              - name      = "CrossZone"
+              - namespace = "aws:elb:loadbalancer"
+              - resource  = ""
+              - value     = "false"
+            },
+          - {
+              - name      = "Custom Availability Zones"
+              - namespace = "aws:autoscaling:asg"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "DefaultSSHPort"
+              - namespace = "aws:elasticbeanstalk:control"
+              - resource  = ""
+              - value     = "22"
+            },
+          - {
+              - name      = "DeleteOnTerminate"
+              - namespace = "aws:elasticbeanstalk:cloudwatch:logs"
+              - resource  = ""
+              - value     = "true"
+            },
+          - {
+              - name      = "DeleteOnTerminate"
+              - namespace = "aws:elasticbeanstalk:cloudwatch:logs:health"
+              - resource  = ""
+              - value     = "true"
+            },
+          - {
+              - name      = "DeploymentPolicy"
+              - namespace = "aws:elasticbeanstalk:command"
+              - resource  = ""
+              - value     = "AllAtOnce"
+            },
+          - {
+              - name      = "DisableIMDSv1"
+              - namespace = "aws:autoscaling:launchconfiguration"
+              - resource  = ""
+              - value     = "true"
+            },
+          - {
+              - name      = "EC2KeyName"
+              - namespace = "aws:autoscaling:launchconfiguration"
+              - resource  = ""
+              - value     = "us-west-2-key-pair"
+            },
+          - {
+              - name      = "ELBScheme"
+              - namespace = "aws:ec2:vpc"
+              - resource  = ""
+              - value     = "public"
+            },
+          - {
+              - name      = "ELBSubnets"
+              - namespace = "aws:ec2:vpc"
+              - resource  = ""
+              - value     = "subnet-00352252ffa99aa35,subnet-0712e298c914976ef"
+            },
+          - {
+              - name      = "EnableCapacityRebalancing"
+              - namespace = "aws:autoscaling:asg"
+              - resource  = ""
+              - value     = "false"
+            },
+          - {
+              - name      = "EnableSpot"
+              - namespace = "aws:ec2:instances"
+              - resource  = ""
+              - value     = "false"
+            },
+          - {
+              - name      = "EnhancedHealthAuthEnabled"
+              - namespace = "aws:elasticbeanstalk:healthreporting:system"
+              - resource  = ""
+              - value     = "true"
+            },
+          - {
+              - name      = "EnvironmentType"
+              - namespace = "aws:elasticbeanstalk:environment"
+              - resource  = ""
+              - value     = "LoadBalanced"
+            },
+          - {
+              - name      = "EnvironmentVariables"
+              - namespace = "aws:cloudformation:template:parameter"
+              - resource  = ""
+              - value     = "STEM_STICKERS_REMOTE_CONFIG=arn:aws:secretsmanager:us-west-2:001928331621:secret:stem-stickers-config-thorough-impala-fanQE4"
+            },
+          - {
+              - name      = "EvaluationPeriods"
+              - namespace = "aws:autoscaling:trigger"
+              - resource  = ""
+              - value     = "1"
+            },
+          - {
+              - name      = "ExternalExtensionsS3Bucket"
+              - namespace = "aws:elasticbeanstalk:environment"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "ExternalExtensionsS3Key"
+              - namespace = "aws:elasticbeanstalk:environment"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "HasCoupledDatabase"
+              - namespace = "aws:rds:dbinstance"
+              - resource  = ""
+              - value     = "false"
+            },
+          - {
+              - name      = "HealthCheckSuccessThreshold"
+              - namespace = "aws:elasticbeanstalk:healthreporting:system"
+              - resource  = ""
+              - value     = "Ok"
+            },
+          - {
+              - name      = "HealthStreamingEnabled"
+              - namespace = "aws:elasticbeanstalk:cloudwatch:logs:health"
+              - resource  = ""
+              - value     = "false"
+            },
+          - {
+              - name      = "HealthyThreshold"
+              - namespace = "aws:elb:healthcheck"
+              - resource  = ""
+              - value     = "3"
+            },
+          - {
+              - name      = "HooksPkgUrl"
+              - namespace = "aws:cloudformation:template:parameter"
+              - resource  = ""
+              - value     = "https://elasticbeanstalk-platform-assets-us-west-2.s3.us-west-2.amazonaws.com/stalks/eb_docker_amazon_linux_2023_1.0.121.0_20230826023544/lib/hooks.tar.gz"
+            },
+          - {
+              - name      = "IamInstanceProfile"
+              - namespace = "aws:autoscaling:launchconfiguration"
+              - resource  = ""
+              - value     = "stem-stickers-test-beanstalk-iam-instance-profile"
+            },
+          - {
+              - name      = "IgnoreHealthCheck"
+              - namespace = "aws:elasticbeanstalk:command"
+              - resource  = ""
+              - value     = "false"
+            },
+          - {
+              - name      = "ImageId"
+              - namespace = "aws:autoscaling:launchconfiguration"
+              - resource  = ""
+              - value     = "ami-041bd9e48bd317d67"
+            },
+          - {
+              - name      = "InstancePort"
+              - namespace = "aws:cloudformation:template:parameter"
+              - resource  = ""
+              - value     = "1323"
+            },
+          - {
+              - name      = "InstancePort"
+              - namespace = "aws:elb:listener:443"
+              - resource  = ""
+              - value     = "1323"
+            },
+          - {
+              - name      = "InstancePort"
+              - namespace = "aws:elb:listener:80"
+              - resource  = ""
+              - value     = "1323"
+            },
+          - {
+              - name      = "InstanceProtocol"
+              - namespace = "aws:elb:listener:443"
+              - resource  = ""
+              - value     = "HTTP"
+            },
+          - {
+              - name      = "InstanceProtocol"
+              - namespace = "aws:elb:listener:80"
+              - resource  = ""
+              - value     = "HTTP"
+            },
+          - {
+              - name      = "InstanceRefreshEnabled"
+              - namespace = "aws:elasticbeanstalk:managedactions:platformupdate"
+              - resource  = ""
+              - value     = "false"
+            },
+          - {
+              - name      = "InstanceType"
+              - namespace = "aws:autoscaling:launchconfiguration"
+              - resource  = ""
+              - value     = "t3.micro"
+            },
+          - {
+              - name      = "InstanceTypeFamily"
+              - namespace = "aws:cloudformation:template:parameter"
+              - resource  = ""
+              - value     = "t3"
+            },
+          - {
+              - name      = "InstanceTypes"
+              - namespace = "aws:ec2:instances"
+              - resource  = ""
+              - value     = "t3.micro, t3.small"
+            },
+          - {
+              - name      = "Interval"
+              - namespace = "aws:elb:healthcheck"
+              - resource  = ""
+              - value     = "10"
+            },
+          - {
+              - name      = "LaunchTimeout"
+              - namespace = "aws:elasticbeanstalk:control"
+              - resource  = ""
+              - value     = "0"
+            },
+          - {
+              - name      = "LaunchType"
+              - namespace = "aws:elasticbeanstalk:control"
+              - resource  = ""
+              - value     = "Migration"
+            },
+          - {
+              - name      = "ListenerEnabled"
+              - namespace = "aws:elb:listener:443"
+              - resource  = ""
+              - value     = "true"
+            },
+          - {
+              - name      = "ListenerEnabled"
+              - namespace = "aws:elb:listener:80"
+              - resource  = ""
+              - value     = "true"
+            },
+          - {
+              - name      = "ListenerProtocol"
+              - namespace = "aws:elb:listener:443"
+              - resource  = ""
+              - value     = "HTTPS"
+            },
+          - {
+              - name      = "ListenerProtocol"
+              - namespace = "aws:elb:listener:80"
+              - resource  = ""
+              - value     = "HTTP"
+            },
+          - {
+              - name      = "LoadBalancerHTTPPort"
+              - namespace = "aws:elb:loadbalancer"
+              - resource  = ""
+              - value     = "80"
+            },
+          - {
+              - name      = "LoadBalancerHTTPSPort"
+              - namespace = "aws:elb:loadbalancer"
+              - resource  = ""
+              - value     = "443"
+            },
+          - {
+              - name      = "LoadBalancerPortProtocol"
+              - namespace = "aws:elb:loadbalancer"
+              - resource  = ""
+              - value     = "HTTP"
+            },
+          - {
+              - name      = "LoadBalancerSSLPortProtocol"
+              - namespace = "aws:elb:loadbalancer"
+              - resource  = ""
+              - value     = "HTTPS"
+            },
+          - {
+              - name      = "LoadBalancerType"
+              - namespace = "aws:elasticbeanstalk:environment"
+              - resource  = ""
+              - value     = "classic"
+            },
+          - {
+              - name      = "LogPublicationControl"
+              - namespace = "aws:elasticbeanstalk:hostmanager"
+              - resource  = ""
+              - value     = "false"
+            },
+          - {
+              - name      = "LowerBreachScaleIncrement"
+              - namespace = "aws:autoscaling:trigger"
+              - resource  = ""
+              - value     = "-1"
+            },
+          - {
+              - name      = "LowerThreshold"
+              - namespace = "aws:autoscaling:trigger"
+              - resource  = ""
+              - value     = "2000000"
+            },
+          - {
+              - name      = "ManagedActionsEnabled"
+              - namespace = "aws:elasticbeanstalk:managedactions"
+              - resource  = ""
+              - value     = "false"
+            },
+          - {
+              - name      = "MaxBatchSize"
+              - namespace = "aws:autoscaling:updatepolicy:rollingupdate"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "MaxSize"
+              - namespace = "aws:autoscaling:asg"
+              - resource  = ""
+              - value     = "4"
+            },
+          - {
+              - name      = "MeasureName"
+              - namespace = "aws:autoscaling:trigger"
+              - resource  = ""
+              - value     = "NetworkOut"
+            },
+          - {
+              - name      = "MinInstancesInService"
+              - namespace = "aws:autoscaling:updatepolicy:rollingupdate"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "MinSize"
+              - namespace = "aws:autoscaling:asg"
+              - resource  = ""
+              - value     = "1"
+            },
+          - {
+              - name      = "MonitoringInterval"
+              - namespace = "aws:autoscaling:launchconfiguration"
+              - resource  = ""
+              - value     = "5 minute"
+            },
+          - {
+              - name      = "Notification Endpoint"
+              - namespace = "aws:elasticbeanstalk:sns:topics"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "Notification Protocol"
+              - namespace = "aws:elasticbeanstalk:sns:topics"
+              - resource  = ""
+              - value     = "email"
+            },
+          - {
+              - name      = "Notification Topic ARN"
+              - namespace = "aws:elasticbeanstalk:sns:topics"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "Notification Topic Name"
+              - namespace = "aws:elasticbeanstalk:sns:topics"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "PauseTime"
+              - namespace = "aws:autoscaling:updatepolicy:rollingupdate"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "Period"
+              - namespace = "aws:autoscaling:trigger"
+              - resource  = ""
+              - value     = "5"
+            },
+          - {
+              - name      = "PreferredStartTime"
+              - namespace = "aws:elasticbeanstalk:managedactions"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "ProxyServer"
+              - namespace = "aws:elasticbeanstalk:environment:proxy"
+              - resource  = ""
+              - value     = "nginx"
+            },
+          - {
+              - name      = "RetentionInDays"
+              - namespace = "aws:elasticbeanstalk:cloudwatch:logs"
+              - resource  = ""
+              - value     = "7"
+            },
+          - {
+              - name      = "RetentionInDays"
+              - namespace = "aws:elasticbeanstalk:cloudwatch:logs:health"
+              - resource  = ""
+              - value     = "7"
+            },
+          - {
+              - name      = "RollbackLaunchOnFailure"
+              - namespace = "aws:elasticbeanstalk:control"
+              - resource  = ""
+              - value     = "false"
+            },
+          - {
+              - name      = "RollingUpdateEnabled"
+              - namespace = "aws:autoscaling:updatepolicy:rollingupdate"
+              - resource  = ""
+              - value     = "false"
+            },
+          - {
+              - name      = "RollingUpdateType"
+              - namespace = "aws:autoscaling:updatepolicy:rollingupdate"
+              - resource  = ""
+              - value     = "Time"
+            },
+          - {
+              - name      = "RootVolumeIOPS"
+              - namespace = "aws:autoscaling:launchconfiguration"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "RootVolumeSize"
+              - namespace = "aws:autoscaling:launchconfiguration"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "RootVolumeThroughput"
+              - namespace = "aws:autoscaling:launchconfiguration"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "RootVolumeType"
+              - namespace = "aws:autoscaling:launchconfiguration"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "SSHSourceRestriction"
+              - namespace = "aws:autoscaling:launchconfiguration"
+              - resource  = ""
+              - value     = "tcp,22,22,0.0.0.0/0"
+            },
+          - {
+              - name      = "SSLCertificateId"
+              - namespace = "aws:elb:listener:443"
+              - resource  = ""
+              - value     = "arn:aws:acm:us-west-2:001928331621:certificate/26269db4-dfd8-45ad-a607-377d0ed4d1b9"
+            },
+          - {
+              - name      = "SSLCertificateId"
+              - namespace = "aws:elb:listener:80"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "SSLCertificateId"
+              - namespace = "aws:elb:loadbalancer"
+              - resource  = ""
+              - value     = "arn:aws:acm:us-west-2:001928331621:certificate/26269db4-dfd8-45ad-a607-377d0ed4d1b9"
+            },
+          - {
+              - name      = "STEM_STICKERS_REMOTE_CONFIG"
+              - namespace = "aws:elasticbeanstalk:application:environment"
+              - resource  = ""
+              - value     = "arn:aws:secretsmanager:us-west-2:001928331621:secret:stem-stickers-config-thorough-impala-fanQE4"
+            },
+          - {
+              - name      = "SecurityGroups"
+              - namespace = "aws:autoscaling:launchconfiguration"
+              - resource  = ""
+              - value     = "sg-0cd9b7bf49848c901,sg-0d0b93cae62383f04"
+            },
+          - {
+              - name      = "SecurityGroups"
+              - namespace = "aws:elb:loadbalancer"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "ServiceRole"
+              - namespace = "aws:elasticbeanstalk:environment"
+              - resource  = ""
+              - value     = "AWSServiceRoleForElasticBeanstalk"
+            },
+          - {
+              - name      = "ServiceRoleForManagedUpdates"
+              - namespace = "aws:elasticbeanstalk:managedactions"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "SpotFleetOnDemandAboveBasePercentage"
+              - namespace = "aws:ec2:instances"
+              - resource  = ""
+              - value     = "70"
+            },
+          - {
+              - name      = "SpotFleetOnDemandBase"
+              - namespace = "aws:ec2:instances"
+              - resource  = ""
+              - value     = "0"
+            },
+          - {
+              - name      = "SpotMaxPrice"
+              - namespace = "aws:ec2:instances"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "Statistic"
+              - namespace = "aws:autoscaling:trigger"
+              - resource  = ""
+              - value     = "Average"
+            },
+          - {
+              - name      = "StreamLogs"
+              - namespace = "aws:elasticbeanstalk:cloudwatch:logs"
+              - resource  = ""
+              - value     = "false"
+            },
+          - {
+              - name      = "Subnets"
+              - namespace = "aws:ec2:vpc"
+              - resource  = ""
+              - value     = "subnet-00352252ffa99aa35,subnet-0712e298c914976ef"
+            },
+          - {
+              - name      = "SupportedArchitectures"
+              - namespace = "aws:ec2:instances"
+              - resource  = ""
+              - value     = "x86_64"
+            },
+          - {
+              - name      = "SystemType"
+              - namespace = "aws:elasticbeanstalk:healthreporting:system"
+              - resource  = ""
+              - value     = "enhanced"
+            },
+          - {
+              - name      = "Target"
+              - namespace = "aws:elb:healthcheck"
+              - resource  = ""
+              - value     = "TCP:1323"
+            },
+          - {
+              - name      = "Timeout"
+              - namespace = "aws:autoscaling:updatepolicy:rollingupdate"
+              - resource  = ""
+              - value     = "PT30M"
+            },
+          - {
+              - name      = "Timeout"
+              - namespace = "aws:elasticbeanstalk:command"
+              - resource  = ""
+              - value     = "600"
+            },
+          - {
+              - name      = "Timeout"
+              - namespace = "aws:elb:healthcheck"
+              - resource  = ""
+              - value     = "5"
+            },
+          - {
+              - name      = "UnhealthyThreshold"
+              - namespace = "aws:elb:healthcheck"
+              - resource  = ""
+              - value     = "5"
+            },
+          - {
+              - name      = "Unit"
+              - namespace = "aws:autoscaling:trigger"
+              - resource  = ""
+              - value     = "Bytes"
+            },
+          - {
+              - name      = "UpdateLevel"
+              - namespace = "aws:elasticbeanstalk:managedactions:platformupdate"
+              - resource  = ""
+              - value     = ""
+            },
+          - {
+              - name      = "UpperBreachScaleIncrement"
+              - namespace = "aws:autoscaling:trigger"
+              - resource  = ""
+              - value     = "1"
+            },
+          - {
+              - name      = "UpperThreshold"
+              - namespace = "aws:autoscaling:trigger"
+              - resource  = ""
+              - value     = "6000000"
+            },
+          - {
+              - name      = "VPCId"
+              - namespace = "aws:ec2:vpc"
+              - resource  = ""
+              - value     = "vpc-0a6c39ce9d81e59ce"
+            },
+          - {
+              - name      = "XRayEnabled"
+              - namespace = "aws:elasticbeanstalk:xray"
+              - resource  = ""
+              - value     = "false"
+            },
+        ] -> null
+      - application            = "stem-stickers-test" -> null
+      - arn                    = "arn:aws:elasticbeanstalk:us-west-2:001928331621:environment/stem-stickers-test/stem-stickers-test-env" -> null
+      - autoscaling_groups     = [
+          - "awseb-e-23hh2rypiy-stack-AWSEBAutoScalingGroup-ihWQC7uviAAx",
+        ] -> null
+      - cname                  = "stem-stickers-test-env.eba-k323ctzi.us-west-2.elasticbeanstalk.com" -> null
+      - endpoint_url           = "awseb-e-2-AWSEBLoa-QXS5O06EZM28-2035129798.us-west-2.elb.amazonaws.com" -> null
+      - id                     = "e-23hh2rypiy" -> null
+      - instances              = [
+          - "i-0b6066c52f4d9832d",
+        ] -> null
+      - launch_configurations  = [
+          - "awseb-e-23hh2rypiy-stack-AWSEBAutoScalingLaunchConfiguration-7wzjEJ8GCVfN",
+        ] -> null
+      - load_balancers         = [
+          - "awseb-e-2-AWSEBLoa-QXS5O06EZM28",
+        ] -> null
+      - name                   = "stem-stickers-test-env" -> null
+      - platform_arn           = "arn:aws:elasticbeanstalk:us-west-2::platform/Docker running on 64bit Amazon Linux 2023/4.0.1" -> null
+      - queues                 = [] -> null
+      - solution_stack_name    = "64bit Amazon Linux 2023 v4.0.1 running Docker" -> null
+      - tags                   = {} -> null
+      - tags_all               = {} -> null
+      - tier                   = "WebServer" -> null
+      - triggers               = [] -> null
+      - version_label          = "stem-stickers-test-version" -> null
+      - wait_for_ready_timeout = "10m" -> null
+
+      - setting {
+          - name      = "DeleteOnTerminate" -> null
+          - namespace = "aws:elasticbeanstalk:cloudwatch:logs" -> null
+          - value     = "true" -> null
+        }
+      - setting {
+          - name      = "DeleteOnTerminate" -> null
+          - namespace = "aws:elasticbeanstalk:cloudwatch:logs:health" -> null
+          - value     = "true" -> null
+        }
+      - setting {
+          - name      = "EC2KeyName" -> null
+          - namespace = "aws:autoscaling:launchconfiguration" -> null
+          - value     = "us-west-2-key-pair" -> null
+        }
+      - setting {
+          - name      = "IamInstanceProfile" -> null
+          - namespace = "aws:autoscaling:launchconfiguration" -> null
+          - value     = "stem-stickers-test-beanstalk-iam-instance-profile" -> null
+        }
+      - setting {
+          - name      = "InstancePort" -> null
+          - namespace = "aws:cloudformation:template:parameter" -> null
+          - value     = "1323" -> null
+        }
+      - setting {
+          - name      = "SSLCertificateId" -> null
+          - namespace = "aws:elb:loadbalancer" -> null
+          - value     = "arn:aws:acm:us-west-2:001928331621:certificate/26269db4-dfd8-45ad-a607-377d0ed4d1b9" -> null
+        }
+      - setting {
+          - name      = "STEM_STICKERS_REMOTE_CONFIG" -> null
+          - namespace = "aws:elasticbeanstalk:application:environment" -> null
+          - value     = "arn:aws:secretsmanager:us-west-2:001928331621:secret:stem-stickers-config-thorough-impala-fanQE4" -> null
+        }
+      - setting {
+          - name      = "SecurityGroups" -> null
+          - namespace = "aws:autoscaling:launchconfiguration" -> null
+          - value     = "sg-0cd9b7bf49848c901,sg-0d0b93cae62383f04" -> null
+        }
+      - setting {
+          - name      = "Subnets" -> null
+          - namespace = "aws:ec2:vpc" -> null
+          - value     = "subnet-00352252ffa99aa35,subnet-0712e298c914976ef" -> null
+        }
+      - setting {
+          - name      = "VPCId" -> null
+          - namespace = "aws:ec2:vpc" -> null
+          - value     = "vpc-0a6c39ce9d81e59ce" -> null
+        }
+    }
+
+  # module.ebs.aws_route53_record.lb[0] will be destroyed
+  # (because index [0] is out of range for count)
+  - resource "aws_route53_record" "lb" {
+      - fqdn                             = "api-test.stem-stickers.com" -> null
+      - id                               = "Z0883084KHFGKGL2BH60_api-test.stem-stickers.com_CNAME" -> null
+      - multivalue_answer_routing_policy = false -> null
+      - name                             = "api-test.stem-stickers.com" -> null
+      - records                          = [
+          - "stem-stickers-test-env.eba-k323ctzi.us-west-2.elasticbeanstalk.com",
+        ] -> null
+      - ttl                              = 5 -> null
+      - type                             = "CNAME" -> null
+      - zone_id                          = "Z0883084KHFGKGL2BH60" -> null
+    }
+
+  # module.networking.aws_eip.nat[0] will be destroyed
+  # (because index [0] is out of range for count)
+  - resource "aws_eip" "nat" {
+      - allocation_id        = "eipalloc-0e5ff8b663c85ffbc" -> null
+      - association_id       = "eipassoc-0e4e08dd5afeabf37" -> null
+      - domain               = "vpc" -> null
+      - id                   = "eipalloc-0e5ff8b663c85ffbc" -> null
+      - network_border_group = "us-west-2" -> null
+      - network_interface    = "eni-0b36cb622f3ee8ffb" -> null
+      - private_dns          = "ip-10-10-100-17.us-west-2.compute.internal" -> null
+      - private_ip           = "10.10.100.17" -> null
+      - public_dns           = "ec2-54-186-93-131.us-west-2.compute.amazonaws.com" -> null
+      - public_ip            = "54.186.93.131" -> null
+      - public_ipv4_pool     = "amazon" -> null
+      - tags                 = {
+          - "Name" = "stem-stickers-test-eip"
+        } -> null
+      - tags_all             = {
+          - "Name" = "stem-stickers-test-eip"
+        } -> null
+      - vpc                  = true -> null
+    }
+
+  # module.networking.aws_eip.nat[1] will be destroyed
+  # (because index [1] is out of range for count)
+  - resource "aws_eip" "nat" {
+      - allocation_id        = "eipalloc-0a767a67fbc86f2a9" -> null
+      - association_id       = "eipassoc-0b09829652a8cc077" -> null
+      - domain               = "vpc" -> null
+      - id                   = "eipalloc-0a767a67fbc86f2a9" -> null
+      - network_border_group = "us-west-2" -> null
+      - network_interface    = "eni-0116b92daa3b22951" -> null
+      - private_dns          = "ip-10-10-101-211.us-west-2.compute.internal" -> null
+      - private_ip           = "10.10.101.211" -> null
+      - public_dns           = "ec2-52-39-74-43.us-west-2.compute.amazonaws.com" -> null
+      - public_ip            = "52.39.74.43" -> null
+      - public_ipv4_pool     = "amazon" -> null
+      - tags                 = {
+          - "Name" = "stem-stickers-test-eip"
+        } -> null
+      - tags_all             = {
+          - "Name" = "stem-stickers-test-eip"
+        } -> null
+      - vpc                  = true -> null
+    }
+
+  # module.networking.aws_internet_gateway.aws_igw[0] will be destroyed
+  # (because index [0] is out of range for count)
+  - resource "aws_internet_gateway" "aws_igw" {
+      - arn      = "arn:aws:ec2:us-west-2:001928331621:internet-gateway/igw-0d8e9815bd03653a0" -> null
+      - id       = "igw-0d8e9815bd03653a0" -> null
+      - owner_id = "001928331621" -> null
+      - tags     = {
+          - "Name" = "stem-stickers-test-igw"
+        } -> null
+      - tags_all = {
+          - "Name" = "stem-stickers-test-igw"
+        } -> null
+      - vpc_id   = "vpc-0a6c39ce9d81e59ce" -> null
+    }
+
+  # module.networking.aws_nat_gateway.main[0] will be destroyed
+  # (because index [0] is out of range for count)
+  - resource "aws_nat_gateway" "main" {
+      - allocation_id                      = "eipalloc-0e5ff8b663c85ffbc" -> null
+      - association_id                     = "eipassoc-0e4e08dd5afeabf37" -> null
+      - connectivity_type                  = "public" -> null
+      - id                                 = "nat-0a695eaa794182010" -> null
+      - network_interface_id               = "eni-0b36cb622f3ee8ffb" -> null
+      - private_ip                         = "10.10.100.17" -> null
+      - public_ip                          = "54.186.93.131" -> null
+      - secondary_allocation_ids           = [] -> null
+      - secondary_private_ip_address_count = 0 -> null
+      - secondary_private_ip_addresses     = [] -> null
+      - subnet_id                          = "subnet-0712e298c914976ef" -> null
+      - tags                               = {
+          - "Name" = "stem-stickers-test-nat-gateway"
+        } -> null
+      - tags_all                           = {
+          - "Name" = "stem-stickers-test-nat-gateway"
+        } -> null
+    }
+
+  # module.networking.aws_nat_gateway.main[1] will be destroyed
+  # (because index [1] is out of range for count)
+  - resource "aws_nat_gateway" "main" {
+      - allocation_id                      = "eipalloc-0a767a67fbc86f2a9" -> null
+      - association_id                     = "eipassoc-0b09829652a8cc077" -> null
+      - connectivity_type                  = "public" -> null
+      - id                                 = "nat-012df6c3d2924f53a" -> null
+      - network_interface_id               = "eni-0116b92daa3b22951" -> null
+      - private_ip                         = "10.10.101.211" -> null
+      - public_ip                          = "52.39.74.43" -> null
+      - secondary_allocation_ids           = [] -> null
+      - secondary_private_ip_address_count = 0 -> null
+      - secondary_private_ip_addresses     = [] -> null
+      - subnet_id                          = "subnet-00352252ffa99aa35" -> null
+      - tags                               = {
+          - "Name" = "stem-stickers-test-nat-gateway"
+        } -> null
+      - tags_all                           = {
+          - "Name" = "stem-stickers-test-nat-gateway"
+        } -> null
+    }
+
+  # module.networking.aws_route.private[0] will be destroyed
+  # (because index [0] is out of range for count)
+  - resource "aws_route" "private" {
+      - destination_cidr_block = "0.0.0.0/0" -> null
+      - id                     = "r-rtb-065ade74dd61470a61080289494" -> null
+      - nat_gateway_id         = "nat-0a695eaa794182010" -> null
+      - origin                 = "CreateRoute" -> null
+      - route_table_id         = "rtb-065ade74dd61470a6" -> null
+      - state                  = "active" -> null
+    }
+
+  # module.networking.aws_route.private[1] will be destroyed
+  # (because index [1] is out of range for count)
+  - resource "aws_route" "private" {
+      - destination_cidr_block = "0.0.0.0/0" -> null
+      - id                     = "r-rtb-055b48d91565997731080289494" -> null
+      - nat_gateway_id         = "nat-012df6c3d2924f53a" -> null
+      - origin                 = "CreateRoute" -> null
+      - route_table_id         = "rtb-055b48d9156599773" -> null
+      - state                  = "active" -> null
+    }
+
+  # module.networking.aws_route.public[0] will be destroyed
+  # (because index [0] is out of range for count)
+  - resource "aws_route" "public" {
+      - destination_cidr_block = "0.0.0.0/0" -> null
+      - gateway_id             = "igw-0d8e9815bd03653a0" -> null
+      - id                     = "r-rtb-082e14d56280ea4731080289494" -> null
+      - origin                 = "CreateRoute" -> null
+      - route_table_id         = "rtb-082e14d56280ea473" -> null
+      - state                  = "active" -> null
+    }
+
+Plan: 0 to add, 0 to change, 10 to destroy.
+
+Changes to Outputs:
+  - bastion_public_dns              = "ec2-34-212-207-83.us-west-2.compute.amazonaws.com" -> null
+  - ebs_environment                 = "stem-stickers-test-env" -> null
+  - ebs_instance                    = "i-0b6066c52f4d9832d" -> null
+module.networking.aws_route.private[1]: Destroying... [id=r-rtb-055b48d91565997731080289494]
+module.networking.aws_route.public[0]: Destroying... [id=r-rtb-082e14d56280ea4731080289494]
+module.networking.aws_route.private[0]: Destroying... [id=r-rtb-065ade74dd61470a61080289494]
+module.ebs.aws_route53_record.lb[0]: Destroying... [id=Z0883084KHFGKGL2BH60_api-test.stem-stickers.com_CNAME]
+module.networking.aws_route.private[1]: Destruction complete after 2s
+module.networking.aws_route.public[0]: Destruction complete after 2s
+module.networking.aws_route.private[0]: Destruction complete after 2s
+module.networking.aws_nat_gateway.main[1]: Destroying... [id=nat-012df6c3d2924f53a]
+module.networking.aws_nat_gateway.main[0]: Destroying... [id=nat-0a695eaa794182010]
+module.ebs.aws_route53_record.lb[0]: Still destroying... [id=Z0883084KHFGKGL2BH60_api-test.stem-stickers.com_CNAME, 10s elapsed]
+module.networking.aws_nat_gateway.main[0]: Still destroying... [id=nat-0a695eaa794182010, 10s elapsed]
+module.networking.aws_nat_gateway.main[1]: Still destroying... [id=nat-012df6c3d2924f53a, 10s elapsed]
+module.ebs.aws_route53_record.lb[0]: Still destroying... [id=Z0883084KHFGKGL2BH60_api-test.stem-stickers.com_CNAME, 20s elapsed]
+module.networking.aws_nat_gateway.main[0]: Still destroying... [id=nat-0a695eaa794182010, 20s elapsed]
+module.networking.aws_nat_gateway.main[1]: Still destroying... [id=nat-012df6c3d2924f53a, 20s elapsed]
+module.ebs.aws_route53_record.lb[0]: Still destroying... [id=Z0883084KHFGKGL2BH60_api-test.stem-stickers.com_CNAME, 30s elapsed]
+module.networking.aws_nat_gateway.main[0]: Still destroying... [id=nat-0a695eaa794182010, 30s elapsed]
+module.networking.aws_nat_gateway.main[1]: Still destroying... [id=nat-012df6c3d2924f53a, 30s elapsed]
+module.ebs.aws_route53_record.lb[0]: Still destroying... [id=Z0883084KHFGKGL2BH60_api-test.stem-stickers.com_CNAME, 40s elapsed]
+module.networking.aws_nat_gateway.main[1]: Still destroying... [id=nat-012df6c3d2924f53a, 40s elapsed]
+module.networking.aws_nat_gateway.main[0]: Still destroying... [id=nat-0a695eaa794182010, 40s elapsed]
+module.networking.aws_nat_gateway.main[0]: Destruction complete after 41s
+module.ebs.aws_route53_record.lb[0]: Destruction complete after 45s
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Destroying... [id=e-23hh2rypiy]
+module.networking.aws_nat_gateway.main[1]: Still destroying... [id=nat-012df6c3d2924f53a, 50s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 10s elapsed]
+module.networking.aws_nat_gateway.main[1]: Still destroying... [id=nat-012df6c3d2924f53a, 1m0s elapsed]
+module.networking.aws_nat_gateway.main[1]: Destruction complete after 1m2s
+module.networking.aws_internet_gateway.aws_igw[0]: Destroying... [id=igw-0d8e9815bd03653a0]
+module.networking.aws_eip.nat[1]: Destroying... [id=eipalloc-0a767a67fbc86f2a9]
+module.networking.aws_eip.nat[0]: Destroying... [id=eipalloc-0e5ff8b663c85ffbc]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 20s elapsed]
+module.networking.aws_eip.nat[1]: Destruction complete after 2s
+module.networking.aws_eip.nat[0]: Destruction complete after 2s
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 10s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 30s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 20s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 40s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 30s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 50s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 40s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 1m0s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 50s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 1m10s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 1m0s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 1m20s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 1m10s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 1m30s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 1m20s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 1m40s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 1m30s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 1m50s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 1m40s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 2m0s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 1m50s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 2m10s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 2m0s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 2m20s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 2m10s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 2m30s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 2m20s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 2m40s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 2m30s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 2m50s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 2m40s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 3m0s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 2m50s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 3m10s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 3m0s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 3m20s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 3m10s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 3m30s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Still destroying... [id=igw-0d8e9815bd03653a0, 3m20s elapsed]
+module.networking.aws_internet_gateway.aws_igw[0]: Destruction complete after 3m20s
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 3m40s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Still destroying... [id=e-23hh2rypiy, 3m50s elapsed]
+module.ebs.aws_elastic_beanstalk_environment.env[0]: Destruction complete after 3m58s
+
+Apply complete! Resources: 0 added, 0 changed, 10 destroyed.
+
+Outputs:
+
+aws_secret_id = "arn:aws:secretsmanager:us-west-2:001928331621:secret:stem-stickers-config-thorough-impala-fanQE4"
+backend = "https://api-test.stem-stickers.com"
+cdn_bucket = "stem-stickers-inviting-guinea"
+cloudfront_root_distribution_id = "EYZLLTSNA5HD1"
+cloudfront_www_distribution_id = "E2AQDZPOIHPKLH"
+database_host = "stem-stickers-test-cluster.cluster-c4fj4bulxsit.us-west-2.rds.amazonaws.com"
+database_name = "stem_stickers"
+database_password = <sensitive>
+database_user = "stem_stickers"
+ebs_application = "stem-stickers-test"
+ebs_version = "stem-stickers-test-version"
+ecr_repository_name = "stem-stickers-test"
+ecr_repository_url = "001928331621.dkr.ecr.us-west-2.amazonaws.com"
+key_name = "us-west-2-key-pair"
+region = "us-west-2"
+website_bucket = "www.test.stem-stickers.com"
