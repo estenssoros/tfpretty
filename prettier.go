@@ -92,7 +92,7 @@ func statusStats(list []*Status) (int, int, int) {
 	return done, inProgress, notStarted
 }
 
-func (p *Prettier) Watch(scanner *bufio.Scanner) error {
+func (p *Prettier) Watch(scanner *bufio.Scanner, sleep time.Duration, render func(*Prettier)) error {
 	for scanner.Scan() {
 		line := strings.TrimSpace(scanner.Text())
 		if err := p.Process(line); err != nil {
@@ -101,9 +101,8 @@ func (p *Prettier) Watch(scanner *bufio.Scanner) error {
 			}
 			return errors.Wrap(err, "p.Process")
 		}
-		time.Sleep(100 * time.Millisecond)
-		clearScreen()
-		fmt.Println(p)
+		time.Sleep(sleep)
+		render(p)
 	}
 	return nil
 }
@@ -135,6 +134,13 @@ var (
 )
 
 func runPrettier(scanner *bufio.Scanner) error {
+	return runPrettierWith(scanner, 100*time.Millisecond, func(p *Prettier) {
+		clearScreen()
+		fmt.Println(p)
+	})
+}
+
+func runPrettierWith(scanner *bufio.Scanner, sleep time.Duration, render func(*Prettier)) error {
 	if err := skipStart(scanner); err != nil {
 		return errors.Wrap(err, "skipStart")
 	}
@@ -146,15 +152,12 @@ func runPrettier(scanner *bufio.Scanner) error {
 	if err != nil {
 		return errors.Wrap(err, "skipChangesToOutputs")
 	}
-	p := &Prettier{
-		Resources: resources,
-	}
-	clearScreen()
-	fmt.Println(p)
+	p := &Prettier{Resources: resources}
+	render(p)
 	if err := p.Process(firstLine); err != nil {
 		return errors.Wrap(err, "p.Process")
 	}
-	return p.Watch(scanner)
+	return p.Watch(scanner, sleep, render)
 }
 
 func findResources(scanner *bufio.Scanner) (map[string]*Status, error) {

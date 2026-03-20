@@ -30,7 +30,7 @@ func TestMain(t *testing.T) {
 	for _, test := range tests {
 		reader := strings.NewReader(test)
 		scanner := bufio.NewScanner(reader)
-		err := runPrettier(scanner)
+		err := runPrettierWith(scanner, 0, func(*Prettier) {})
 		if err != nil {
 			t.Fatal(err)
 		}

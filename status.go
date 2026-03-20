@@ -63,6 +63,8 @@ func (s *Status) Update(update string) error {
 		return errors.Wrap(s.updateCreate(update), "updateCreate")
 	case opDestroying:
 		return errors.Wrap(s.updateDestroy(update), "updateDestroy")
+	case opReplacing:
+		return errors.Wrap(s.updateDestroy(update), "updateReplacing")
 	case opUpdating:
 		return errors.Wrap(s.updateCreate(update), "updateUpdated")
 	case opReading:
